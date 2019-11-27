@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import API
 
 protocol UserUseCase {
     func list() -> [User]

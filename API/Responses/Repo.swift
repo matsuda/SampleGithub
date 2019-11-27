@@ -8,15 +8,15 @@
 
 import Foundation
 
-struct Repo: Decodable {
-    let name: String
-    let language: String?
-    let stargazersCount: Int
-    let description: String
-    let fork: Bool
-    let htmlUrl: String
+public struct Repo: Decodable {
+    public let name: String
+    public let language: String?
+    public let stargazersCount: Int
+    public let description: String
+    public let fork: Bool
+    public let htmlUrl: String
 
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case name
         case language
         case stargazersCount = "stargazers_count"

@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct User {
-    let avatarUrl: String
-    let login: String
-    let name: String
-    let followers: Int
-    let following: Int
+public struct User: Decodable {
+    public let avatarUrl: String
+    public let login: String
+    public let name: String
+    public let followers: Int
+    public let following: Int
 
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case avatarUrl = "avatar_url"
         case login
         case name
