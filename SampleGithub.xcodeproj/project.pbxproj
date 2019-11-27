@@ -80,9 +80,7 @@
 				0E0743B5238EBD910046B5CF /* AppDelegate.swift */,
 				0E0743B9238EBD910046B5CF /* ViewController.swift */,
 				0E0743BB238EBD910046B5CF /* Main.storyboard */,
-				0E0743BE238EBD930046B5CF /* Assets.xcassets */,
-				0E0743C0238EBD930046B5CF /* LaunchScreen.storyboard */,
-				0E0743C3238EBD930046B5CF /* Info.plist */,
+				0E0C0AD0238EC80200FDEEBA /* Resources */,
 			);
 			path = SampleGithub;
 			sourceTree = "<group>";
@@ -94,6 +92,16 @@
 				0E0743CE238EBD930046B5CF /* Info.plist */,
 			);
 			path = SampleGithubTests;
+			sourceTree = "<group>";
+		};
+		0E0C0AD0238EC80200FDEEBA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0E0743BE238EBD930046B5CF /* Assets.xcassets */,
+				0E0743C0238EBD930046B5CF /* LaunchScreen.storyboard */,
+				0E0743C3238EBD930046B5CF /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
