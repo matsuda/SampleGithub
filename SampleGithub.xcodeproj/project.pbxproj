@@ -17,6 +17,7 @@
 		0E0C0AE0238ECDBA00FDEEBA /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0ADE238ECDBA00FDEEBA /* UserListViewController.swift */; };
 		0E0C0AE3238ECE1300FDEEBA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0AE2238ECE1300FDEEBA /* User.swift */; };
 		0E0C0AEB238ED1B200FDEEBA /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0AEA238ED1B200FDEEBA /* Repo.swift */; };
+		0E0C0AEE238ED49F00FDEEBA /* UserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0AED238ED49F00FDEEBA /* UserInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		0E0C0ADE238ECDBA00FDEEBA /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		0E0C0AE2238ECE1300FDEEBA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0E0C0AEA238ED1B200FDEEBA /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
+		0E0C0AED238ED49F00FDEEBA /* UserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			children = (
 				0E0C0ADA238ECDBA00FDEEBA /* Views */,
 				0E0C0AE1238ECDFC00FDEEBA /* Models */,
+				0E0C0AEC238ED47000FDEEBA /* Interactors */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -154,6 +157,14 @@
 				0E0C0AEA238ED1B200FDEEBA /* Repo.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		0E0C0AEC238ED47000FDEEBA /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				0E0C0AED238ED49F00FDEEBA /* UserInteractor.swift */,
+			);
+			path = Interactors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E0C0AE3238ECE1300FDEEBA /* User.swift in Sources */,
+				0E0C0AEE238ED49F00FDEEBA /* UserInteractor.swift in Sources */,
 				0E0743BA238EBD910046B5CF /* ViewController.swift in Sources */,
 				0E0C0AEB238ED1B200FDEEBA /* Repo.swift in Sources */,
 				0E0743B6238EBD910046B5CF /* AppDelegate.swift in Sources */,
