@@ -32,6 +32,7 @@
 		0E0C0B26238EE08D00FDEEBA /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0B24238EE08C00FDEEBA /* Repo.swift */; };
 		0E0C0B28238EE26C00FDEEBA /* DecodableDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0B27238EE26C00FDEEBA /* DecodableDataParser.swift */; };
 		0E0C0B2D238EEC2100FDEEBA /* ListUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0B2C238EEC2100FDEEBA /* ListUser.swift */; };
+		0E0C0B30238EEF7600FDEEBA /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0B2F238EEF7600FDEEBA /* UserListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		0E0C0B24238EE08C00FDEEBA /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		0E0C0B27238EE26C00FDEEBA /* DecodableDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableDataParser.swift; sourceTree = "<group>"; };
 		0E0C0B2C238EEC2100FDEEBA /* ListUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUser.swift; sourceTree = "<group>"; };
+		0E0C0B2F238EEF7600FDEEBA /* UserListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 		0E0C0ADB238ECDBA00FDEEBA /* UserList */ = {
 			isa = PBXGroup;
 			children = (
+				0E0C0B2E238EEF7600FDEEBA /* ViewModels */,
 				0E0C0ADC238ECDBA00FDEEBA /* ViewControllers */,
 			);
 			path = UserList;
@@ -291,6 +294,14 @@
 				0E0C0B2C238EEC2100FDEEBA /* ListUser.swift */,
 			);
 			path = Responses;
+			sourceTree = "<group>";
+		};
+		0E0C0B2E238EEF7600FDEEBA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0E0C0B2F238EEF7600FDEEBA /* UserListViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -497,6 +508,7 @@
 				0E0743BA238EBD910046B5CF /* ViewController.swift in Sources */,
 				0E0743B6238EBD910046B5CF /* AppDelegate.swift in Sources */,
 				0E0C0AE0238ECDBA00FDEEBA /* UserListViewController.swift in Sources */,
+				0E0C0B30238EEF7600FDEEBA /* UserListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

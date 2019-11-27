@@ -8,18 +8,21 @@
 
 import Foundation
 import API
+import APIKit
 
 protocol UserUseCase {
-    func list() -> [User]
-    func user(with login: String) -> User?
+    func list(completion: @escaping (Result<[ListUser], SessionTaskError>) -> Void)
+    func user(with username: String, completion: @escaping (Result<User, SessionTaskError>) -> Void)
 }
 
-class UserInteractor: UserUseCase {
-    func list() -> [User] {
-        return []
+final class UserInteractor: UserUseCase {
+    func list(completion: @escaping (Result<[ListUser], SessionTaskError>) -> Void) {
+        let request = UserListRequest()
+        Session.send(request, handler: completion)
     }
     
-    func user(with login: String) -> User? {
-        return nil
+    func user(with username: String, completion: @escaping (Result<User, SessionTaskError>) -> Void) {
+        let request = UserRequest(username: username)
+        Session.send(request, handler: completion)
     }
 }
