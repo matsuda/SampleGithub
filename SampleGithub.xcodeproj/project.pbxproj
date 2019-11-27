@@ -13,6 +13,8 @@
 		0E0743BF238EBD930046B5CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E0743BE238EBD930046B5CF /* Assets.xcassets */; };
 		0E0743C2238EBD930046B5CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E0743C0238EBD930046B5CF /* LaunchScreen.storyboard */; };
 		0E0743CD238EBD930046B5CF /* SampleGithubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0743CC238EBD930046B5CF /* SampleGithubTests.swift */; };
+		0E0C0ADF238ECDBA00FDEEBA /* UserListViewControllers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E0C0ADD238ECDBA00FDEEBA /* UserListViewControllers.storyboard */; };
+		0E0C0AE0238ECDBA00FDEEBA /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0ADE238ECDBA00FDEEBA /* UserListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		0E0743C8238EBD930046B5CF /* SampleGithubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleGithubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E0743CC238EBD930046B5CF /* SampleGithubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleGithubTests.swift; sourceTree = "<group>"; };
 		0E0743CE238EBD930046B5CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E0C0ADD238ECDBA00FDEEBA /* UserListViewControllers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserListViewControllers.storyboard; sourceTree = "<group>"; };
+		0E0C0ADE238ECDBA00FDEEBA /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 		0E0743B4238EBD910046B5CF /* SampleGithub */ = {
 			isa = PBXGroup;
 			children = (
+				0E0C0AD3238EC8AE00FDEEBA /* Sources */,
 				0E0743B5238EBD910046B5CF /* AppDelegate.swift */,
 				0E0743B9238EBD910046B5CF /* ViewController.swift */,
 				0E0743BB238EBD910046B5CF /* Main.storyboard */,
@@ -102,6 +107,39 @@
 				0E0743C3238EBD930046B5CF /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		0E0C0AD3238EC8AE00FDEEBA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				0E0C0ADA238ECDBA00FDEEBA /* Views */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		0E0C0ADA238ECDBA00FDEEBA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0E0C0ADB238ECDBA00FDEEBA /* UserList */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0E0C0ADB238ECDBA00FDEEBA /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				0E0C0ADC238ECDBA00FDEEBA /* ViewControllers */,
+			);
+			path = UserList;
+			sourceTree = "<group>";
+		};
+		0E0C0ADC238ECDBA00FDEEBA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0E0C0ADE238ECDBA00FDEEBA /* UserListViewController.swift */,
+				0E0C0ADD238ECDBA00FDEEBA /* UserListViewControllers.storyboard */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +225,7 @@
 			files = (
 				0E0743C2238EBD930046B5CF /* LaunchScreen.storyboard in Resources */,
 				0E0743BF238EBD930046B5CF /* Assets.xcassets in Resources */,
+				0E0C0ADF238ECDBA00FDEEBA /* UserListViewControllers.storyboard in Resources */,
 				0E0743BD238EBD910046B5CF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,6 +246,7 @@
 			files = (
 				0E0743BA238EBD910046B5CF /* ViewController.swift in Sources */,
 				0E0743B6238EBD910046B5CF /* AppDelegate.swift in Sources */,
+				0E0C0AE0238ECDBA00FDEEBA /* UserListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +407,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SampleGithub/Info.plist;
+				INFOPLIST_FILE = SampleGithub/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -384,7 +424,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SampleGithub/Info.plist;
+				INFOPLIST_FILE = SampleGithub/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
