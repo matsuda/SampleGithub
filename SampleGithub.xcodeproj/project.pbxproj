@@ -18,6 +18,10 @@
 		0E0C0AE3238ECE1300FDEEBA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0AE2238ECE1300FDEEBA /* User.swift */; };
 		0E0C0AEB238ED1B200FDEEBA /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0AEA238ED1B200FDEEBA /* Repo.swift */; };
 		0E0C0AEE238ED49F00FDEEBA /* UserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0AED238ED49F00FDEEBA /* UserInteractor.swift */; };
+		0E0C0AF2238EDB6600FDEEBA /* APIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E0C0AF0238EDB6600FDEEBA /* APIKit.framework */; };
+		0E0C0AF3238EDB6600FDEEBA /* APIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E0C0AF0238EDB6600FDEEBA /* APIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0E0C0AF4238EDB6600FDEEBA /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E0C0AF1238EDB6600FDEEBA /* Nuke.framework */; };
+		0E0C0AF5238EDB6600FDEEBA /* Nuke.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E0C0AF1238EDB6600FDEEBA /* Nuke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +33,21 @@
 			remoteInfo = SampleGithub;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0E0C0AF6238EDB6600FDEEBA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0E0C0AF3238EDB6600FDEEBA /* APIKit.framework in Embed Frameworks */,
+				0E0C0AF5238EDB6600FDEEBA /* Nuke.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0E0743B2238EBD910046B5CF /* SampleGithub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleGithub.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +65,8 @@
 		0E0C0AE2238ECE1300FDEEBA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0E0C0AEA238ED1B200FDEEBA /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		0E0C0AED238ED49F00FDEEBA /* UserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractor.swift; sourceTree = "<group>"; };
+		0E0C0AF0238EDB6600FDEEBA /* APIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = APIKit.framework; path = Carthage/Build/iOS/APIKit.framework; sourceTree = "<group>"; };
+		0E0C0AF1238EDB6600FDEEBA /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E0C0AF2238EDB6600FDEEBA /* APIKit.framework in Frameworks */,
+				0E0C0AF4238EDB6600FDEEBA /* Nuke.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +95,7 @@
 				0E0743B4238EBD910046B5CF /* SampleGithub */,
 				0E0743CB238EBD930046B5CF /* SampleGithubTests */,
 				0E0743B3238EBD910046B5CF /* Products */,
+				0E0C0AEF238EDB6600FDEEBA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -167,6 +191,15 @@
 			path = Interactors;
 			sourceTree = "<group>";
 		};
+		0E0C0AEF238EDB6600FDEEBA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E0C0AF0238EDB6600FDEEBA /* APIKit.framework */,
+				0E0C0AF1238EDB6600FDEEBA /* Nuke.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -177,6 +210,8 @@
 				0E0743AE238EBD910046B5CF /* Sources */,
 				0E0743AF238EBD910046B5CF /* Frameworks */,
 				0E0743B0238EBD910046B5CF /* Resources */,
+				0E0C0AF6238EDB6600FDEEBA /* Embed Frameworks */,
+				0E0C0AF7238EDB7100FDEEBA /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -263,6 +298,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E0C0AF7238EDB7100FDEEBA /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/APIKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0E0743AE238EBD910046B5CF /* Sources */ = {
@@ -435,6 +493,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SampleGithub/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -452,6 +514,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SampleGithub/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
