@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Library
 import Nuke
 
 extension UIImageView {
-    func loadImage(url: URL?) {
-        guard let url = url else {
+    func loadImage(with resource: URLResource?) {
+        guard let url = resource?.url else {
             image = nil
             return
         }

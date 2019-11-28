@@ -7,14 +7,13 @@
 //
 
 import UIKit
+import Library
 
 final class UserListViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
-            let identifier = String(describing: UserListCell.self)
-            let nib = UINib(nibName: identifier, bundle: nil)
-            tableView.register(nib, forCellReuseIdentifier: identifier)
+            tableView.registerNib(UserListCell.self)
         }
     }
 

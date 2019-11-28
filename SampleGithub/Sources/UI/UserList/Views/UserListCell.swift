@@ -29,6 +29,6 @@ final class UserListCell: UITableViewCell {
 
     func configure(_ entity: Entity) {
         usernameLabel.text = entity.login
-        iconView.loadImage(url: URL(string: entity.avatarUrl))
+        iconView.loadImage(with: entity.avatarUrl)
     }
 }
