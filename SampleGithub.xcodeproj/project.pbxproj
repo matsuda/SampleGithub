@@ -207,18 +207,18 @@
 		0E0C0AD3238EC8AE00FDEEBA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				0E0C0ADA238ECDBA00FDEEBA /* Views */,
+				0E0C0ADA238ECDBA00FDEEBA /* UI */,
 				0E0C0AEC238ED47000FDEEBA /* Interactors */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		0E0C0ADA238ECDBA00FDEEBA /* Views */ = {
+		0E0C0ADA238ECDBA00FDEEBA /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				0E0C0ADB238ECDBA00FDEEBA /* UserList */,
 			);
-			path = Views;
+			path = UI;
 			sourceTree = "<group>";
 		};
 		0E0C0ADB238ECDBA00FDEEBA /* UserList */ = {
