@@ -33,6 +33,9 @@
 		0E0C0B28238EE26C00FDEEBA /* DecodableDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0B27238EE26C00FDEEBA /* DecodableDataParser.swift */; };
 		0E0C0B2D238EEC2100FDEEBA /* ListUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0B2C238EEC2100FDEEBA /* ListUser.swift */; };
 		0E0C0B30238EEF7600FDEEBA /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0B2F238EEF7600FDEEBA /* UserListViewModel.swift */; };
+		0EA1FED2239035EF00D23AD6 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA1FED0239035EF00D23AD6 /* UserListCell.swift */; };
+		0EA1FED3239035EF00D23AD6 /* UserListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1FED1239035EF00D23AD6 /* UserListCell.xib */; };
+		0EA1FED723903A5900D23AD6 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA1FED623903A5900D23AD6 /* UIImageView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +114,9 @@
 		0E0C0B27238EE26C00FDEEBA /* DecodableDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableDataParser.swift; sourceTree = "<group>"; };
 		0E0C0B2C238EEC2100FDEEBA /* ListUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUser.swift; sourceTree = "<group>"; };
 		0E0C0B2F238EEF7600FDEEBA /* UserListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
+		0EA1FED0239035EF00D23AD6 /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
+		0EA1FED1239035EF00D23AD6 /* UserListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListCell.xib; sourceTree = "<group>"; };
+		0EA1FED623903A5900D23AD6 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +215,7 @@
 			children = (
 				0E0C0ADA238ECDBA00FDEEBA /* UI */,
 				0E0C0AEC238ED47000FDEEBA /* Interactors */,
+				0EA1FED423903A2600D23AD6 /* Libs */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -225,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				0E0C0B2E238EEF7600FDEEBA /* ViewModels */,
+				0EA1FECF239035BE00D23AD6 /* Views */,
 				0E0C0ADC238ECDBA00FDEEBA /* ViewControllers */,
 			);
 			path = UserList;
@@ -302,6 +310,31 @@
 				0E0C0B2F238EEF7600FDEEBA /* UserListViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0EA1FECF239035BE00D23AD6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0EA1FED0239035EF00D23AD6 /* UserListCell.swift */,
+				0EA1FED1239035EF00D23AD6 /* UserListCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0EA1FED423903A2600D23AD6 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				0EA1FED523903A4100D23AD6 /* Extensions */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		0EA1FED523903A4100D23AD6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0EA1FED623903A5900D23AD6 /* UIImageView+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,6 +481,7 @@
 			files = (
 				0E0743C2238EBD930046B5CF /* LaunchScreen.storyboard in Resources */,
 				0E0743BF238EBD930046B5CF /* Assets.xcassets in Resources */,
+				0EA1FED3239035EF00D23AD6 /* UserListCell.xib in Resources */,
 				0E0C0ADF238ECDBA00FDEEBA /* UserListViewControllers.storyboard in Resources */,
 				0E0743BD238EBD910046B5CF /* Main.storyboard in Resources */,
 			);
@@ -504,6 +538,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EA1FED2239035EF00D23AD6 /* UserListCell.swift in Sources */,
+				0EA1FED723903A5900D23AD6 /* UIImageView+Extensions.swift in Sources */,
 				0E0C0AEE238ED49F00FDEEBA /* UserInteractor.swift in Sources */,
 				0E0743BA238EBD910046B5CF /* ViewController.swift in Sources */,
 				0E0743B6238EBD910046B5CF /* AppDelegate.swift in Sources */,

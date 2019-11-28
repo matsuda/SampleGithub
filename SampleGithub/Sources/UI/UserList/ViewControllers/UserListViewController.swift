@@ -10,7 +10,13 @@ import UIKit
 
 final class UserListViewController: UIViewController {
 
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView! {
+        didSet {
+            let identifier = String(describing: UserListCell.self)
+            let nib = UINib(nibName: identifier, bundle: nil)
+            tableView.register(nib, forCellReuseIdentifier: identifier)
+        }
+    }
 
     private var viewModel: UserListViewModel!
 
@@ -51,13 +57,11 @@ extension UserListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
-        }
+        let identifier = String(describing: UserListCell.self)
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! UserListCell
         let user = viewModel.users[indexPath.row]
-        cell?.textLabel?.text = user.login
-        return cell!
+        cell.configure(user)
+        return cell
     }
     
     
