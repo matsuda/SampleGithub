@@ -23,7 +23,7 @@ final class UserListViewModel {
             switch result {
             case .success(let users):
                 self.users = users
-                print("users >>>", users)
+//                print("users >>>", users)
             case .failure(let error):
                 print("error >>>", error)
                 break
