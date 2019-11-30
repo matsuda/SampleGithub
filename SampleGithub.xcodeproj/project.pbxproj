@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0E0743B6238EBD910046B5CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0743B5238EBD910046B5CF /* AppDelegate.swift */; };
-		0E0743BA238EBD910046B5CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0743B9238EBD910046B5CF /* ViewController.swift */; };
 		0E0743BD238EBD910046B5CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E0743BB238EBD910046B5CF /* Main.storyboard */; };
 		0E0743BF238EBD930046B5CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E0743BE238EBD930046B5CF /* Assets.xcassets */; };
 		0E0743C2238EBD930046B5CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E0743C0238EBD930046B5CF /* LaunchScreen.storyboard */; };
@@ -122,7 +121,6 @@
 /* Begin PBXFileReference section */
 		0E0743B2238EBD910046B5CF /* SampleGithub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleGithub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E0743B5238EBD910046B5CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0E0743B9238EBD910046B5CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0E0743BC238EBD910046B5CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0E0743BE238EBD930046B5CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E0743C1238EBD930046B5CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -251,7 +249,6 @@
 			children = (
 				0E0C0AD3238EC8AE00FDEEBA /* Sources */,
 				0E0743B5238EBD910046B5CF /* AppDelegate.swift */,
-				0E0743B9238EBD910046B5CF /* ViewController.swift */,
 				0E0743BB238EBD910046B5CF /* Main.storyboard */,
 				0E0C0AD0238EC80200FDEEBA /* Resources */,
 			);
@@ -748,7 +745,6 @@
 				0EA1FED2239035EF00D23AD6 /* UserListCell.swift in Sources */,
 				0EA1FED723903A5900D23AD6 /* UIImageView+Extensions.swift in Sources */,
 				0E0C0AEE238ED49F00FDEEBA /* UserInteractor.swift in Sources */,
-				0E0743BA238EBD910046B5CF /* ViewController.swift in Sources */,
 				0E0743B6238EBD910046B5CF /* AppDelegate.swift in Sources */,
 				0E0C0AE0238ECDBA00FDEEBA /* UserListViewController.swift in Sources */,
 				0EA80FE423925F02004553D7 /* UserRepoListViewController.swift in Sources */,
