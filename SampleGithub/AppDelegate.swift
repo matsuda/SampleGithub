@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import API
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        if let dict = Bundle.main.infoDictionary {
+            if let token = dict["GitHubAPIToken"] as? String {
+                print("token >>>>>>> \(token)")
+                GitHubConfig.shared.token = token
+            }
+        }
         return true
     }
 }

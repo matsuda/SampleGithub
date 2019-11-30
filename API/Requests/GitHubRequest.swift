@@ -14,6 +14,16 @@ public protocol GitHubRequest: Request {}
 extension GitHubRequest {
     public var baseURL: URL { URL(string: "https://api.github.com")! }
 
+    public var headerFields: [String : String] {
+        var dict = [
+            "Accept": "application/vnd.github.v3+json",
+        ]
+        if let token = GitHubConfig.shared.token, !token.isEmpty {
+            dict["Authorization"] = "token \(token)"
+        }
+        return dict
+    }
+
     public var dataParser: DataParser {
         return DecodableDataParser()
     }

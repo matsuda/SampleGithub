@@ -44,6 +44,7 @@
 		0EA1FEFC23903F3B00D23AD6 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA1FEFB23903F3B00D23AD6 /* Reusable.swift */; };
 		0EA1FEFE23903F9500D23AD6 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA1FEFD23903F9500D23AD6 /* UITableView+Extensions.swift */; };
 		0EA1FF00239041C100D23AD6 /* URLResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA1FEFF239041C100D23AD6 /* URLResource.swift */; };
+		0EA80FE023925973004553D7 /* GitHubConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA80FDF23925973004553D7 /* GitHubConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +157,7 @@
 		0EA1FEFB23903F3B00D23AD6 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		0EA1FEFD23903F9500D23AD6 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		0EA1FEFF239041C100D23AD6 /* URLResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLResource.swift; sourceTree = "<group>"; };
+		0EA80FDF23925973004553D7 /* GitHubConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,6 +332,7 @@
 				0E0C0B1A238EDD9C00FDEEBA /* Requests */,
 				0E0C0AFF238EDD6000FDEEBA /* API.h */,
 				0E0C0B00238EDD6000FDEEBA /* Info.plist */,
+				0EA80FDF23925973004553D7 /* GitHubConfig.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -741,6 +744,7 @@
 				0E0C0B21238EDFC800FDEEBA /* UserRequest.swift in Sources */,
 				0E0C0B1F238EDDFA00FDEEBA /* GitHubRequest.swift in Sources */,
 				0E0C0B25238EE08D00FDEEBA /* User.swift in Sources */,
+				0EA80FE023925973004553D7 /* GitHubConfig.swift in Sources */,
 				0E0C0B28238EE26C00FDEEBA /* DecodableDataParser.swift in Sources */,
 				0E0C0B2D238EEC2100FDEEBA /* ListUser.swift in Sources */,
 				0E0C0B26238EE08D00FDEEBA /* Repo.swift in Sources */,
