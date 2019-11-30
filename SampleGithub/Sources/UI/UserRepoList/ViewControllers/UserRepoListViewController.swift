@@ -64,5 +64,12 @@ extension UserRepoListViewController: UITableViewDataSource {
 
 extension UserRepoListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let entity = viewModel.repos[indexPath.row]
+        guard let url = URL(string: entity.htmlUrl) else {
+            return
+        }
+        let vc = WebViewController.make()
+        vc.configure(url: url)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

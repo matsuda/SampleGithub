@@ -34,6 +34,8 @@
 		0E0C0B30238EEF7600FDEEBA /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0B2F238EEF7600FDEEBA /* UserListViewModel.swift */; };
 		0E8837532392AA40007714BB /* RepoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8837512392AA40007714BB /* RepoListCell.swift */; };
 		0E8837542392AA40007714BB /* RepoListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8837522392AA40007714BB /* RepoListCell.xib */; };
+		0E8837582392DEA2007714BB /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8837572392DEA2007714BB /* WebViewController.swift */; };
+		0E88375A2392DEAD007714BB /* WebViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E8837592392DEAD007714BB /* WebViewController.storyboard */; };
 		0EA1FED2239035EF00D23AD6 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA1FED0239035EF00D23AD6 /* UserListCell.swift */; };
 		0EA1FED3239035EF00D23AD6 /* UserListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1FED1239035EF00D23AD6 /* UserListCell.xib */; };
 		0EA1FED723903A5900D23AD6 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA1FED623903A5900D23AD6 /* UIImageView+Extensions.swift */; };
@@ -165,6 +167,8 @@
 		0E0C0B2F238EEF7600FDEEBA /* UserListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		0E8837512392AA40007714BB /* RepoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListCell.swift; sourceTree = "<group>"; };
 		0E8837522392AA40007714BB /* RepoListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoListCell.xib; sourceTree = "<group>"; };
+		0E8837572392DEA2007714BB /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		0E8837592392DEAD007714BB /* WebViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebViewController.storyboard; sourceTree = "<group>"; };
 		0EA1FED0239035EF00D23AD6 /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
 		0EA1FED1239035EF00D23AD6 /* UserListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListCell.xib; sourceTree = "<group>"; };
 		0EA1FED623903A5900D23AD6 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
@@ -319,6 +323,7 @@
 			children = (
 				0E0C0ADB238ECDBA00FDEEBA /* UserList */,
 				0EA80FE123925ECC004553D7 /* UserRepoList */,
+				0E8837552392DE60007714BB /* WebView */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -421,6 +426,23 @@
 				0E8837522392AA40007714BB /* RepoListCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0E8837552392DE60007714BB /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				0E8837562392DE99007714BB /* ViewControllers */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		0E8837562392DE99007714BB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0E8837572392DEA2007714BB /* WebViewController.swift */,
+				0E8837592392DEAD007714BB /* WebViewController.storyboard */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		0EA1FECF239035BE00D23AD6 /* Views */ = {
@@ -704,6 +726,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E88375A2392DEAD007714BB /* WebViewController.storyboard in Resources */,
 				0EA80FE623925F16004553D7 /* UserRepoListViewController.storyboard in Resources */,
 				0E0743C2238EBD930046B5CF /* LaunchScreen.storyboard in Resources */,
 				0E0743BF238EBD930046B5CF /* Assets.xcassets in Resources */,
@@ -803,6 +826,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EA1FED2239035EF00D23AD6 /* UserListCell.swift in Sources */,
+				0E8837582392DEA2007714BB /* WebViewController.swift in Sources */,
 				0EA1FED723903A5900D23AD6 /* UIImageView+Extensions.swift in Sources */,
 				0E0C0AEE238ED49F00FDEEBA /* UserInteractor.swift in Sources */,
 				0E8837532392AA40007714BB /* RepoListCell.swift in Sources */,
