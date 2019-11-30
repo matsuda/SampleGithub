@@ -54,7 +54,7 @@ extension UserListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.users.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = String(describing: UserListCell.self)
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! UserListCell
@@ -62,13 +62,14 @@ extension UserListViewController: UITableViewDataSource {
         cell.configure(user)
         return cell
     }
-    
-    
 }
 
 
 // MARK: - UITableViewDelegate
 
 extension UserListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = UserRepoListViewController.make()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

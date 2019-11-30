@@ -45,6 +45,9 @@
 		0EA1FEFE23903F9500D23AD6 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA1FEFD23903F9500D23AD6 /* UITableView+Extensions.swift */; };
 		0EA1FF00239041C100D23AD6 /* URLResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA1FEFF239041C100D23AD6 /* URLResource.swift */; };
 		0EA80FE023925973004553D7 /* GitHubConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA80FDF23925973004553D7 /* GitHubConfig.swift */; };
+		0EA80FE423925F02004553D7 /* UserRepoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA80FE323925F02004553D7 /* UserRepoListViewController.swift */; };
+		0EA80FE623925F16004553D7 /* UserRepoListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA80FE523925F16004553D7 /* UserRepoListViewController.storyboard */; };
+		0EA80FE82392618A004553D7 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA80FE72392618A004553D7 /* UIViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +161,9 @@
 		0EA1FEFD23903F9500D23AD6 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		0EA1FEFF239041C100D23AD6 /* URLResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLResource.swift; sourceTree = "<group>"; };
 		0EA80FDF23925973004553D7 /* GitHubConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubConfig.swift; sourceTree = "<group>"; };
+		0EA80FE323925F02004553D7 /* UserRepoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepoListViewController.swift; sourceTree = "<group>"; };
+		0EA80FE523925F16004553D7 /* UserRepoListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserRepoListViewController.storyboard; sourceTree = "<group>"; };
+		0EA80FE72392618A004553D7 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				0E0C0ADB238ECDBA00FDEEBA /* UserList */,
+				0EA80FE123925ECC004553D7 /* UserRepoList */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -424,8 +431,26 @@
 			isa = PBXGroup;
 			children = (
 				0EA1FEFD23903F9500D23AD6 /* UITableView+Extensions.swift */,
+				0EA80FE72392618A004553D7 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0EA80FE123925ECC004553D7 /* UserRepoList */ = {
+			isa = PBXGroup;
+			children = (
+				0EA80FE223925ECC004553D7 /* ViewControllers */,
+			);
+			path = UserRepoList;
+			sourceTree = "<group>";
+		};
+		0EA80FE223925ECC004553D7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0EA80FE323925F02004553D7 /* UserRepoListViewController.swift */,
+				0EA80FE523925F16004553D7 /* UserRepoListViewController.storyboard */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -627,6 +652,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EA80FE623925F16004553D7 /* UserRepoListViewController.storyboard in Resources */,
 				0E0743C2238EBD930046B5CF /* LaunchScreen.storyboard in Resources */,
 				0E0743BF238EBD930046B5CF /* Assets.xcassets in Resources */,
 				0EA1FED3239035EF00D23AD6 /* UserListCell.xib in Resources */,
@@ -725,6 +751,7 @@
 				0E0743BA238EBD910046B5CF /* ViewController.swift in Sources */,
 				0E0743B6238EBD910046B5CF /* AppDelegate.swift in Sources */,
 				0E0C0AE0238ECDBA00FDEEBA /* UserListViewController.swift in Sources */,
+				0EA80FE423925F02004553D7 /* UserRepoListViewController.swift in Sources */,
 				0E0C0B30238EEF7600FDEEBA /* UserListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -763,6 +790,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EA80FE82392618A004553D7 /* UIViewController+Extensions.swift in Sources */,
 				0EA1FEFC23903F3B00D23AD6 /* Reusable.swift in Sources */,
 				0EA1FF00239041C100D23AD6 /* URLResource.swift in Sources */,
 				0EA1FEFE23903F9500D23AD6 /* UITableView+Extensions.swift in Sources */,
