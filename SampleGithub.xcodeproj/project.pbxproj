@@ -453,6 +453,7 @@
 			buildPhases = (
 				0E0743AE238EBD910046B5CF /* Sources */,
 				0E0743AF238EBD910046B5CF /* Frameworks */,
+				0EA80FDE23925097004553D7 /* GitHub API token */,
 				0E0743B0238EBD910046B5CF /* Resources */,
 				0E0C0AF6238EDB6600FDEEBA /* Embed Frameworks */,
 				0E0C0AF7238EDB7100FDEEBA /* Carthage */,
@@ -688,6 +689,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		0EA80FDE23925097004553D7 /* GitHub API token */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${TEMP_DIR}/Preprocessed-Info.plist",
+			);
+			name = "GitHub API token";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${SRCROOT}/scripts/set_github_api_token.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -938,6 +958,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SampleGithub/Resources/Info.plist;
+				INFOPLIST_PREPROCESS = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -960,6 +981,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SampleGithub/Resources/Info.plist;
+				INFOPLIST_PREPROCESS = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
