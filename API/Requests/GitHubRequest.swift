@@ -41,7 +41,8 @@ extension GitHubRequest where Response: Decodable {
             print(jsonString)
             if let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
                 print("documentDirectory >>>>>", path)
-                let file = (path as NSString).appendingPathComponent("\(self.path).json")
+                let filename = (self.path as NSString).lastPathComponent
+                let file = (path as NSString).appendingPathComponent("\(filename).json")
                 do {
                     try jsonString.write(toFile: file, atomically: false, encoding: .utf8)
                 } catch {

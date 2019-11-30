@@ -32,6 +32,8 @@
 		0E0C0B28238EE26C00FDEEBA /* DecodableDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0B27238EE26C00FDEEBA /* DecodableDataParser.swift */; };
 		0E0C0B2D238EEC2100FDEEBA /* ListUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0B2C238EEC2100FDEEBA /* ListUser.swift */; };
 		0E0C0B30238EEF7600FDEEBA /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0B2F238EEF7600FDEEBA /* UserListViewModel.swift */; };
+		0E8837532392AA40007714BB /* RepoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8837512392AA40007714BB /* RepoListCell.swift */; };
+		0E8837542392AA40007714BB /* RepoListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8837522392AA40007714BB /* RepoListCell.xib */; };
 		0EA1FED2239035EF00D23AD6 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA1FED0239035EF00D23AD6 /* UserListCell.swift */; };
 		0EA1FED3239035EF00D23AD6 /* UserListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1FED1239035EF00D23AD6 /* UserListCell.xib */; };
 		0EA1FED723903A5900D23AD6 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA1FED623903A5900D23AD6 /* UIImageView+Extensions.swift */; };
@@ -55,6 +57,9 @@
 		0EA80FF223929E04004553D7 /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA80FEB23929E04004553D7 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0EA80FF323929E04004553D7 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA80FEC23929E04004553D7 /* RxCocoa.framework */; };
 		0EA80FF423929E04004553D7 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA80FEC23929E04004553D7 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0EA80FF623929FAB004553D7 /* UserRepoListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA80FF523929FAB004553D7 /* UserRepoListRequest.swift */; };
+		0EA80FF92392A156004553D7 /* UserRepoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA80FF82392A156004553D7 /* UserRepoListViewModel.swift */; };
+		0EA80FFB2392A228004553D7 /* UserRepoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA80FFA2392A228004553D7 /* UserRepoInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +163,8 @@
 		0E0C0B27238EE26C00FDEEBA /* DecodableDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableDataParser.swift; sourceTree = "<group>"; };
 		0E0C0B2C238EEC2100FDEEBA /* ListUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUser.swift; sourceTree = "<group>"; };
 		0E0C0B2F238EEF7600FDEEBA /* UserListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
+		0E8837512392AA40007714BB /* RepoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListCell.swift; sourceTree = "<group>"; };
+		0E8837522392AA40007714BB /* RepoListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoListCell.xib; sourceTree = "<group>"; };
 		0EA1FED0239035EF00D23AD6 /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
 		0EA1FED1239035EF00D23AD6 /* UserListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListCell.xib; sourceTree = "<group>"; };
 		0EA1FED623903A5900D23AD6 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
@@ -178,6 +185,9 @@
 		0EA80FEA23929E04004553D7 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		0EA80FEB23929E04004553D7 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		0EA80FEC23929E04004553D7 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		0EA80FF523929FAB004553D7 /* UserRepoListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepoListRequest.swift; sourceTree = "<group>"; };
+		0EA80FF82392A156004553D7 /* UserRepoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepoListViewModel.swift; sourceTree = "<group>"; };
+		0EA80FFA2392A228004553D7 /* UserRepoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepoInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				0E0C0AED238ED49F00FDEEBA /* UserInteractor.swift */,
+				0EA80FFA2392A228004553D7 /* UserRepoInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -380,6 +391,7 @@
 				0E0C0B1E238EDDFA00FDEEBA /* GitHubRequest.swift */,
 				0E0C0B20238EDFC800FDEEBA /* UserRequest.swift */,
 				0E0C0B27238EE26C00FDEEBA /* DecodableDataParser.swift */,
+				0EA80FF523929FAB004553D7 /* UserRepoListRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -400,6 +412,15 @@
 				0E0C0B2F238EEF7600FDEEBA /* UserListViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0E8837502392AA22007714BB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0E8837512392AA40007714BB /* RepoListCell.swift */,
+				0E8837522392AA40007714BB /* RepoListCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		0EA1FECF239035BE00D23AD6 /* Views */ = {
@@ -460,6 +481,8 @@
 		0EA80FE123925ECC004553D7 /* UserRepoList */ = {
 			isa = PBXGroup;
 			children = (
+				0EA80FF72392A149004553D7 /* ViewModels */,
+				0E8837502392AA22007714BB /* Views */,
 				0EA80FE223925ECC004553D7 /* ViewControllers */,
 			);
 			path = UserRepoList;
@@ -472,6 +495,14 @@
 				0EA80FE523925F16004553D7 /* UserRepoListViewController.storyboard */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0EA80FF72392A149004553D7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0EA80FF82392A156004553D7 /* UserRepoListViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -676,6 +707,7 @@
 				0EA80FE623925F16004553D7 /* UserRepoListViewController.storyboard in Resources */,
 				0E0743C2238EBD930046B5CF /* LaunchScreen.storyboard in Resources */,
 				0E0743BF238EBD930046B5CF /* Assets.xcassets in Resources */,
+				0E8837542392AA40007714BB /* RepoListCell.xib in Resources */,
 				0EA1FED3239035EF00D23AD6 /* UserListCell.xib in Resources */,
 				0E0C0ADF238ECDBA00FDEEBA /* UserListViewControllers.storyboard in Resources */,
 				0E0743BD238EBD910046B5CF /* Main.storyboard in Resources */,
@@ -773,6 +805,9 @@
 				0EA1FED2239035EF00D23AD6 /* UserListCell.swift in Sources */,
 				0EA1FED723903A5900D23AD6 /* UIImageView+Extensions.swift in Sources */,
 				0E0C0AEE238ED49F00FDEEBA /* UserInteractor.swift in Sources */,
+				0E8837532392AA40007714BB /* RepoListCell.swift in Sources */,
+				0EA80FFB2392A228004553D7 /* UserRepoInteractor.swift in Sources */,
+				0EA80FF92392A156004553D7 /* UserRepoListViewModel.swift in Sources */,
 				0E0743B6238EBD910046B5CF /* AppDelegate.swift in Sources */,
 				0E0C0AE0238ECDBA00FDEEBA /* UserListViewController.swift in Sources */,
 				0EA80FE423925F02004553D7 /* UserRepoListViewController.swift in Sources */,
@@ -798,6 +833,7 @@
 				0EA80FE023925973004553D7 /* GitHubConfig.swift in Sources */,
 				0E0C0B28238EE26C00FDEEBA /* DecodableDataParser.swift in Sources */,
 				0E0C0B2D238EEC2100FDEEBA /* ListUser.swift in Sources */,
+				0EA80FF623929FAB004553D7 /* UserRepoListRequest.swift in Sources */,
 				0E0C0B26238EE08D00FDEEBA /* Repo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

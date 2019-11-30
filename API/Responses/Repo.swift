@@ -9,16 +9,18 @@
 import Foundation
 
 public struct Repo: Decodable {
-    public let name: String
+    public let fullName: String
     public let language: String?
+    public let forksCount: Int
     public let stargazersCount: Int
-    public let description: String
+    public let description: String?
     public let fork: Bool
     public let htmlUrl: String
 
     private enum CodingKeys: String, CodingKey {
-        case name
+        case fullName = "full_name"
         case language
+        case forksCount = "forks_count"
         case stargazersCount = "stargazers_count"
         case description
         case fork
