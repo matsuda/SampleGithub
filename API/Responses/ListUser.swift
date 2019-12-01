@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: - ListUser
+
 public struct ListUser: Decodable {
     public let avatarUrl: String
     public let login: String
@@ -15,5 +17,25 @@ public struct ListUser: Decodable {
     private enum CodingKeys: String, CodingKey {
         case avatarUrl = "avatar_url"
         case login
+    }
+}
+
+
+// MARK: - ListUserResponse
+
+public struct ListUserResponse<Element: Decodable>: PaginationResponse {
+    public let elements: Element
+    public var nextURI: String?
+    public var since: Int?
+
+    public init(elements: Element, nextURI: String?) {
+        self.elements = elements
+        self.nextURI = nextURI
+        let queryItems = nextURI.flatMap(URLComponents.init)?.queryItems
+        since = queryItems?
+            .filter { $0.name == "since" }
+            .compactMap { $0.value }
+            .compactMap { Int($0) }
+            .first
     }
 }

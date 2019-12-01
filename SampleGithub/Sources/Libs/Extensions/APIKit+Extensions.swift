@@ -21,7 +21,6 @@ extension Session {
                     observer(.error(error))
                 }
             }
-            task?.resume()
             return Disposables.create {
                 task?.cancel()
             }

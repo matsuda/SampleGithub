@@ -9,13 +9,13 @@
 import Foundation
 
 enum LoadingState: Equatable {
-    case idle, loading, finished, failure(Error)
+    case idle, loading(isFirst: Bool), finished, failure(Error)
 
     static func == (lhs: Self, rhs: Self) -> Bool {
         switch (lhs, rhs) {
         case (.idle, .idle):
             return true
-        case (.loading, .loading):
+        case (.loading(let v1), .loading(let v2)) where v1 == v2:
             return true
         case (.finished, .finished):
             return true

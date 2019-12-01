@@ -45,12 +45,12 @@ final class UserRepoListViewModel {
             .disposed(by: disposeBag)
     }
 
-    func fetch() {
+    func fetch(isFirst: Bool = true) {
         if case .loading = _loadingState.value {
             return
         }
 
-        _loadingState.accept(.loading)
+        _loadingState.accept(.loading(isFirst: isFirst))
         let userRequest = dependency.userUseCase.user(with: username)
         let repoRequest = dependency.repoUseCase.list(with: username)
         Single

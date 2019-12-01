@@ -18,6 +18,7 @@ final class UserListViewController: UIViewController {
             tableView.registerNib(UserListCell.self)
         }
     }
+    private let pagingView: LoadingView = .loadNib()
 
     private var viewModel: UserListViewModel!
     private let disposeBag = DisposeBag()
@@ -51,21 +52,41 @@ extension UserListViewController {
         )
         viewModel.loadingState
             .drive(onNext: { [weak self] (state) in
-                guard let self = self else { return }
-                switch state {
-                case .loading:
-                    break
-                case .idle:
-                    self.tableView.reloadData()
-                    break
-                case .finished:
-                    self.tableView.reloadData()
-                    break
-                case .failure(let error):
-                    break
-                }
+                self?.handle(loadingState: state)
             })
             .disposed(by: disposeBag)
+    }
+
+    private func handle(loadingState: LoadingState) {
+        switch loadingState {
+        case .loading(isFirst: true):
+            updateTableFooterView(animated: true)
+            break
+        case .loading(isFirst: false):
+            updateTableFooterView(animated: true)
+            break
+        case .idle:
+            updateTableFooterView(animated: true)
+            tableView.reloadData()
+            break
+        case .finished:
+            updateTableFooterView(animated: false)
+            tableView.reloadData()
+            break
+        case .failure(let error):
+            updateTableFooterView(animated: false)
+            break
+        }
+    }
+
+    private func updateTableFooterView(animated: Bool) {
+        if animated {
+            pagingView.startAnimating()
+            tableView.tableFooterView = pagingView
+        } else {
+            pagingView.stopAnimating()
+            tableView.tableFooterView = nil
+        }
     }
 }
 
@@ -81,6 +102,10 @@ extension UserListViewController: UITableViewDataSource {
         let user = viewModel.users[indexPath.row]
         cell.configure(user)
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        viewModel.pagingIfNeeded(at: indexPath.row)
     }
 }
 

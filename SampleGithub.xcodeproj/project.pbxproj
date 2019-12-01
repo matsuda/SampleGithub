@@ -34,6 +34,12 @@
 		0E0C0B30238EEF7600FDEEBA /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0B2F238EEF7600FDEEBA /* UserListViewModel.swift */; };
 		0E690BF82393E6CF00C8E0D3 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E690BF72393E6CF00C8E0D3 /* UIColor+Extensions.swift */; };
 		0E690BFB2394179D00C8E0D3 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E690BFA2394179D00C8E0D3 /* LoadingState.swift */; };
+		0E690BFF23941D7C00C8E0D3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E690BFE23941D7C00C8E0D3 /* LoadingView.swift */; };
+		0E690C0123941D8800C8E0D3 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E690C0023941D8800C8E0D3 /* LoadingView.xib */; };
+		0E690C0323942C3600C8E0D3 /* WebLinking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E690C0223942C3600C8E0D3 /* WebLinking.framework */; };
+		0E690C0623942C7500C8E0D3 /* WebLinking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E690C0223942C3600C8E0D3 /* WebLinking.framework */; };
+		0E690C0723942C7500C8E0D3 /* WebLinking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E690C0223942C3600C8E0D3 /* WebLinking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0E690C0923942D7000C8E0D3 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E690C0823942D7000C8E0D3 /* Pagination.swift */; };
 		0E8837532392AA40007714BB /* RepoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8837512392AA40007714BB /* RepoListCell.swift */; };
 		0E8837542392AA40007714BB /* RepoListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8837522392AA40007714BB /* RepoListCell.xib */; };
 		0E8837582392DEA2007714BB /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8837572392DEA2007714BB /* WebViewController.swift */; };
@@ -137,6 +143,7 @@
 				0EA80FF423929E04004553D7 /* RxCocoa.framework in Embed Frameworks */,
 				0E0C0B13238EDD6000FDEEBA /* API.framework in Embed Frameworks */,
 				0EA1FEF323903E7000D23AD6 /* Library.framework in Embed Frameworks */,
+				0E690C0723942C7500C8E0D3 /* WebLinking.framework in Embed Frameworks */,
 				0E0C0AF5238EDB6600FDEEBA /* Nuke.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -174,6 +181,10 @@
 		0E0C0B2F238EEF7600FDEEBA /* UserListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		0E690BF72393E6CF00C8E0D3 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		0E690BFA2394179D00C8E0D3 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
+		0E690BFE23941D7C00C8E0D3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		0E690C0023941D8800C8E0D3 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		0E690C0223942C3600C8E0D3 /* WebLinking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebLinking.framework; path = Carthage/Build/iOS/WebLinking.framework; sourceTree = "<group>"; };
+		0E690C0823942D7000C8E0D3 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		0E8837512392AA40007714BB /* RepoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListCell.swift; sourceTree = "<group>"; };
 		0E8837522392AA40007714BB /* RepoListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoListCell.xib; sourceTree = "<group>"; };
 		0E8837572392DEA2007714BB /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -220,6 +231,7 @@
 				0EA80FF323929E04004553D7 /* RxCocoa.framework in Frameworks */,
 				0E0C0B12238EDD6000FDEEBA /* API.framework in Frameworks */,
 				0EA1FEF223903E7000D23AD6 /* Library.framework in Frameworks */,
+				0E690C0623942C7500C8E0D3 /* WebLinking.framework in Frameworks */,
 				0E0C0AF4238EDB6600FDEEBA /* Nuke.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +247,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E690C0323942C3600C8E0D3 /* WebLinking.framework in Frameworks */,
 				0E0C0B1D238EDDBF00FDEEBA /* APIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +349,7 @@
 		0E0C0ADA238ECDBA00FDEEBA /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				0E690BFC23941D1F00C8E0D3 /* Common */,
 				0E0C0ADB238ECDBA00FDEEBA /* UserList */,
 				0EA80FE123925ECC004553D7 /* UserRepoList */,
 				0E8837552392DE60007714BB /* WebView */,
@@ -374,6 +388,7 @@
 		0E0C0AEF238EDB6600FDEEBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0E690C0223942C3600C8E0D3 /* WebLinking.framework */,
 				0EA80FEB23929E04004553D7 /* RxBlocking.framework */,
 				0EA80FEC23929E04004553D7 /* RxCocoa.framework */,
 				0EA80FEA23929E04004553D7 /* RxRelay.framework */,
@@ -422,6 +437,7 @@
 				0E0C0B23238EE08C00FDEEBA /* User.swift */,
 				0E0C0B24238EE08C00FDEEBA /* Repo.swift */,
 				0E0C0B2C238EEC2100FDEEBA /* ListUser.swift */,
+				0E690C0823942D7000C8E0D3 /* Pagination.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -440,6 +456,23 @@
 				0E690BFA2394179D00C8E0D3 /* LoadingState.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		0E690BFC23941D1F00C8E0D3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				0E690BFD23941D6400C8E0D3 /* Loading */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		0E690BFD23941D6400C8E0D3 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				0E690BFE23941D7C00C8E0D3 /* LoadingView.swift */,
+				0E690C0023941D8800C8E0D3 /* LoadingView.xib */,
+			);
+			path = Loading;
 			sourceTree = "<group>";
 		};
 		0E8837502392AA22007714BB /* Views */ = {
@@ -764,6 +797,7 @@
 				0E8DA5132393B35400B0091F /* RepoOwnerView.xib in Resources */,
 				0E0C0ADF238ECDBA00FDEEBA /* UserListViewControllers.storyboard in Resources */,
 				0E0743BD238EBD910046B5CF /* Main.storyboard in Resources */,
+				0E690C0123941D8800C8E0D3 /* LoadingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -819,6 +853,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/WebLinking.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -859,6 +894,7 @@
 				0E690BF82393E6CF00C8E0D3 /* UIColor+Extensions.swift in Sources */,
 				0E8837582392DEA2007714BB /* WebViewController.swift in Sources */,
 				0EA1FED723903A5900D23AD6 /* UIImageView+Extensions.swift in Sources */,
+				0E690BFF23941D7C00C8E0D3 /* LoadingView.swift in Sources */,
 				0E8DA50D2393A15D00B0091F /* APIKit+Extensions.swift in Sources */,
 				0E8DA50F2393AF6400B0091F /* RxSwift+Extensions.swift in Sources */,
 				0E0C0AEE238ED49F00FDEEBA /* UserInteractor.swift in Sources */,
@@ -892,6 +928,7 @@
 				0EA80FE023925973004553D7 /* GitHubConfig.swift in Sources */,
 				0E0C0B28238EE26C00FDEEBA /* DecodableDataParser.swift in Sources */,
 				0E0C0B2D238EEC2100FDEEBA /* ListUser.swift in Sources */,
+				0E690C0923942D7000C8E0D3 /* Pagination.swift in Sources */,
 				0EA80FF623929FAB004553D7 /* UserRepoListRequest.swift in Sources */,
 				0E0C0B26238EE08D00FDEEBA /* Repo.swift in Sources */,
 			);

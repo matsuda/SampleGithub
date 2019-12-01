@@ -9,14 +9,28 @@
 import Foundation
 import APIKit
 
-public struct UserListRequest: GitHubRequest {
-    public typealias Response = [ListUser]
+// MARK: - UserListRequest
+
+public struct UserListRequest: GitHubRequest, PaginationRequest {
+    public typealias Response = ListUserResponse<[ListUser]>
 
     public var path: String = "/users"
-    public var method: HTTPMethod = .get
+    public var queryParameters: [String : Any]? {
+        if let since = since {
+            return ["since": since]
+        }
+        return nil
+    }
 
-    public init() {}
+    public let since: Int?
+
+    public init(since: Int? = nil) {
+        self.since = since
+    }
 }
+
+
+// MARK: - UserRequest
 
 public struct UserRequest: GitHubRequest {
     public typealias Response = User
@@ -24,7 +38,6 @@ public struct UserRequest: GitHubRequest {
     public var path: String {
         "/users/\(username)"
     }
-    public var method: HTTPMethod = .get
 
     private let username: String
 

@@ -12,7 +12,7 @@ import APIKit
 import RxSwift
 
 protocol UserUseCase {
-    func list() -> Single<[ListUser]>
+    func list(since: Int?) -> Single<ListUserResponse<[ListUser]>>
     func user(with username: String) -> Single<User>
 }
 
@@ -23,8 +23,8 @@ final class UserInteractor: UserUseCase {
         self.session = session
     }
 
-    func list() -> Single<[ListUser]> {
-        let request = UserListRequest()
+    func list(since: Int? = nil) -> Single<ListUserResponse<[ListUser]>> {
+        let request = UserListRequest(since: since)
         return session.response(request: request)
     }
 
