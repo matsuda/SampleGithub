@@ -22,6 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 GitHubConfig.shared.token = token
             }
         }
+        if GitHubConfig.shared.token == nil {
+            print("======================================")
+            print("== GitHub API auth token is not set ==")
+            print("======================================")
+        }
 
         let navi = window!.rootViewController as! UINavigationController
         let vc = UserRepoListViewController.make()
