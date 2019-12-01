@@ -32,12 +32,16 @@
 		0E0C0B28238EE26C00FDEEBA /* DecodableDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0B27238EE26C00FDEEBA /* DecodableDataParser.swift */; };
 		0E0C0B2D238EEC2100FDEEBA /* ListUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0B2C238EEC2100FDEEBA /* ListUser.swift */; };
 		0E0C0B30238EEF7600FDEEBA /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0B2F238EEF7600FDEEBA /* UserListViewModel.swift */; };
+		0E690BF82393E6CF00C8E0D3 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E690BF72393E6CF00C8E0D3 /* UIColor+Extensions.swift */; };
 		0E8837532392AA40007714BB /* RepoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8837512392AA40007714BB /* RepoListCell.swift */; };
 		0E8837542392AA40007714BB /* RepoListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8837522392AA40007714BB /* RepoListCell.xib */; };
 		0E8837582392DEA2007714BB /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8837572392DEA2007714BB /* WebViewController.swift */; };
 		0E88375A2392DEAD007714BB /* WebViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E8837592392DEAD007714BB /* WebViewController.storyboard */; };
 		0E8DA50D2393A15D00B0091F /* APIKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DA50C2393A15D00B0091F /* APIKit+Extensions.swift */; };
 		0E8DA50F2393AF6400B0091F /* RxSwift+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DA50E2393AF6400B0091F /* RxSwift+Extensions.swift */; };
+		0E8DA5112393B34400B0091F /* RepoOwnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DA5102393B34400B0091F /* RepoOwnerView.swift */; };
+		0E8DA5132393B35400B0091F /* RepoOwnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8DA5122393B35400B0091F /* RepoOwnerView.xib */; };
+		0E8DA5152393B7D300B0091F /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DA5142393B7D300B0091F /* NibLoadable.swift */; };
 		0EA1FED2239035EF00D23AD6 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA1FED0239035EF00D23AD6 /* UserListCell.swift */; };
 		0EA1FED3239035EF00D23AD6 /* UserListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1FED1239035EF00D23AD6 /* UserListCell.xib */; };
 		0EA1FED723903A5900D23AD6 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA1FED623903A5900D23AD6 /* UIImageView+Extensions.swift */; };
@@ -167,12 +171,16 @@
 		0E0C0B27238EE26C00FDEEBA /* DecodableDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableDataParser.swift; sourceTree = "<group>"; };
 		0E0C0B2C238EEC2100FDEEBA /* ListUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUser.swift; sourceTree = "<group>"; };
 		0E0C0B2F238EEF7600FDEEBA /* UserListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
+		0E690BF72393E6CF00C8E0D3 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		0E8837512392AA40007714BB /* RepoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListCell.swift; sourceTree = "<group>"; };
 		0E8837522392AA40007714BB /* RepoListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoListCell.xib; sourceTree = "<group>"; };
 		0E8837572392DEA2007714BB /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		0E8837592392DEAD007714BB /* WebViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebViewController.storyboard; sourceTree = "<group>"; };
 		0E8DA50C2393A15D00B0091F /* APIKit+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIKit+Extensions.swift"; sourceTree = "<group>"; };
 		0E8DA50E2393AF6400B0091F /* RxSwift+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxSwift+Extensions.swift"; sourceTree = "<group>"; };
+		0E8DA5102393B34400B0091F /* RepoOwnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoOwnerView.swift; sourceTree = "<group>"; };
+		0E8DA5122393B35400B0091F /* RepoOwnerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoOwnerView.xib; sourceTree = "<group>"; };
+		0E8DA5142393B7D300B0091F /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		0EA1FED0239035EF00D23AD6 /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
 		0EA1FED1239035EF00D23AD6 /* UserListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListCell.xib; sourceTree = "<group>"; };
 		0EA1FED623903A5900D23AD6 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
@@ -428,6 +436,8 @@
 			children = (
 				0E8837512392AA40007714BB /* RepoListCell.swift */,
 				0E8837522392AA40007714BB /* RepoListCell.xib */,
+				0E8DA5102393B34400B0091F /* RepoOwnerView.swift */,
+				0E8DA5122393B35400B0091F /* RepoOwnerView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -472,6 +482,7 @@
 				0EA1FED623903A5900D23AD6 /* UIImageView+Extensions.swift */,
 				0E8DA50C2393A15D00B0091F /* APIKit+Extensions.swift */,
 				0E8DA50E2393AF6400B0091F /* RxSwift+Extensions.swift */,
+				0E690BF72393E6CF00C8E0D3 /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -484,6 +495,7 @@
 				0EA1FEFA23903EB500D23AD6 /* Extensions */,
 				0EA1FEFB23903F3B00D23AD6 /* Reusable.swift */,
 				0EA1FEFF239041C100D23AD6 /* URLResource.swift */,
+				0E8DA5142393B7D300B0091F /* NibLoadable.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -738,6 +750,7 @@
 				0E0743BF238EBD930046B5CF /* Assets.xcassets in Resources */,
 				0E8837542392AA40007714BB /* RepoListCell.xib in Resources */,
 				0EA1FED3239035EF00D23AD6 /* UserListCell.xib in Resources */,
+				0E8DA5132393B35400B0091F /* RepoOwnerView.xib in Resources */,
 				0E0C0ADF238ECDBA00FDEEBA /* UserListViewControllers.storyboard in Resources */,
 				0E0743BD238EBD910046B5CF /* Main.storyboard in Resources */,
 			);
@@ -832,6 +845,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EA1FED2239035EF00D23AD6 /* UserListCell.swift in Sources */,
+				0E690BF82393E6CF00C8E0D3 /* UIColor+Extensions.swift in Sources */,
 				0E8837582392DEA2007714BB /* WebViewController.swift in Sources */,
 				0EA1FED723903A5900D23AD6 /* UIImageView+Extensions.swift in Sources */,
 				0E8DA50D2393A15D00B0091F /* APIKit+Extensions.swift in Sources */,
@@ -841,6 +855,7 @@
 				0EA80FFB2392A228004553D7 /* UserRepoInteractor.swift in Sources */,
 				0EA80FF92392A156004553D7 /* UserRepoListViewModel.swift in Sources */,
 				0E0743B6238EBD910046B5CF /* AppDelegate.swift in Sources */,
+				0E8DA5112393B34400B0091F /* RepoOwnerView.swift in Sources */,
 				0E0C0AE0238ECDBA00FDEEBA /* UserListViewController.swift in Sources */,
 				0EA80FE423925F02004553D7 /* UserRepoListViewController.swift in Sources */,
 				0E0C0B30238EEF7600FDEEBA /* UserListViewModel.swift in Sources */,
@@ -885,6 +900,7 @@
 				0EA80FE82392618A004553D7 /* UIViewController+Extensions.swift in Sources */,
 				0EA1FEFC23903F3B00D23AD6 /* Reusable.swift in Sources */,
 				0EA1FF00239041C100D23AD6 /* URLResource.swift in Sources */,
+				0E8DA5152393B7D300B0091F /* NibLoadable.swift in Sources */,
 				0EA1FEFE23903F9500D23AD6 /* UITableView+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

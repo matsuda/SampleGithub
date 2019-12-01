@@ -53,7 +53,7 @@ final class RepoListCell: UITableViewCell {
     }
 
     func configure(_ entity: Entity) {
-        nameLabel.text = entity.fullName
+        nameLabel.text = entity.name
         descriptionLabel.text = entity.description
         starsLabel.text = "\(entity.stargazersCount)"
         forksLabel.text = "\(entity.forksCount)"

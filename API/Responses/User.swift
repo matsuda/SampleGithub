@@ -12,6 +12,9 @@ public struct User: Decodable {
     public let avatarUrl: String
     public let login: String
     public let name: String
+    public let location: String?
+    public let bio: String?
+    public let publicRepos: Int
     public let followers: Int
     public let following: Int
 
@@ -19,6 +22,9 @@ public struct User: Decodable {
         case avatarUrl = "avatar_url"
         case login
         case name
+        case location
+        case bio
+        case publicRepos = "public_repos"
         case followers
         case following
     }

@@ -52,3 +52,44 @@ extension UITableView {
         return view
     }
 }
+
+
+extension UITableView {
+    public func deselectRow(animated: Bool = true) {
+        if let indexPath = indexPathForSelectedRow {
+            deselectRow(at: indexPath, animated: animated)
+        }
+    }
+
+    public func sizeToFitHeaderView() {
+        guard let view = tableHeaderView else {
+            return
+        }
+        let current = view.frame
+        let frame = systemLayoutFittingFrame(view)
+        if !current.equalTo(frame) {
+            tableHeaderView = view
+        }
+    }
+
+    public func sizeToFitFooterView() {
+        guard let view = tableFooterView else {
+            return
+        }
+        let current = view.frame
+        let frame = systemLayoutFittingFrame(view)
+        if !current.equalTo(frame) {
+            tableFooterView = view
+        }
+    }
+
+    private func systemLayoutFittingFrame(_ view: UIView) -> CGRect {
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
+        let size = view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        var frame = view.frame
+        frame.size.height = size.height
+        view.frame = frame
+        return frame
+    }
+}

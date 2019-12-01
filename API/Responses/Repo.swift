@@ -9,6 +9,7 @@
 import Foundation
 
 public struct Repo: Decodable {
+    public let name: String
     public let fullName: String
     public let language: String?
     public let forksCount: Int
@@ -18,6 +19,7 @@ public struct Repo: Decodable {
     public let htmlUrl: String
 
     private enum CodingKeys: String, CodingKey {
+        case name
         case fullName = "full_name"
         case language
         case forksCount = "forks_count"

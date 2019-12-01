@@ -19,29 +19,44 @@ final class UserRepoListViewController: UIViewController {
             tableView.rowHeight = UITableView.automaticDimension
         }
     }
+    private let headerView: RepoOwnerView = .loadNib()
 
+    private var username: String?
     private var viewModel: UserRepoListViewModel!
     private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigation()
         setupViewModel()
+        /// WARN: after create VM
+        tableView.tableFooterView = UIView()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        viewModel.fetchRepos() { [weak self] in
-//            self?.tableView.reloadData()
-//        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.deselectRow()
+    }
+
+    func configure(username: String) {
+        self.username = username
     }
 }
 
 extension UserRepoListViewController {
+    private func setupNavigation() {
+        title = "Repos"
+    }
+
     private func setupViewModel() {
+        guard let username = username else {
+            fatalError("username is missing")
+        }
+
         let session = Session.shared
         viewModel = UserRepoListViewModel(
-            username: "",
-            viewViewAppear: self.rx.viewWillAppear,
+            username: username,
+            viewViewAppear: rx.viewWillAppear,
             dependency: UserRepoListViewModel.Dependency(
                 userUseCase: UserInteractor(session: session),
                 repoUseCase: UserRepoInteractor(session: session)
@@ -54,9 +69,11 @@ extension UserRepoListViewController {
                 case .loading:
                     break
                 case .idle:
+                    self.updateTableHeaderView()
                     self.tableView.reloadData()
                     break
                 case .finished:
+                    self.updateTableHeaderView()
                     self.tableView.reloadData()
                     break
                 case .failure(let error):
@@ -64,6 +81,16 @@ extension UserRepoListViewController {
                 }
             })
             .disposed(by: disposeBag)
+    }
+
+    private func updateTableHeaderView() {
+        if let user = viewModel.user {
+            headerView.configure(user)
+            tableView.tableHeaderView = headerView
+            tableView.sizeToFitHeaderView()
+        } else {
+            tableView.tableHeaderView = nil
+        }
     }
 }
 

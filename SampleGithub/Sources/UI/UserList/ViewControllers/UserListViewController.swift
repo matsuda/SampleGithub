@@ -70,6 +70,8 @@ extension UserListViewController: UITableViewDataSource {
 extension UserListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = UserRepoListViewController.make()
+        let user = viewModel.users[indexPath.row]
+        vc.configure(username: user.login)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
