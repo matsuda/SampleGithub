@@ -1,3 +1,4 @@
 github "ReactiveX/RxSwift" "5.0.1"
 github "ishkawa/APIKit" "5.0.0"
 github "kean/Nuke" "8.4.0"
+github "kylef-archive/WebLinking.swift" "de630b3e552c7a9d576c90f3d40237be8f976de6"
