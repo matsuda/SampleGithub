@@ -14,8 +14,8 @@ public protocol GitHubRequest: Request {}
 extension GitHubRequest {
     public var baseURL: URL { URL(string: "https://api.github.com")! }
 
-    public var headerFields: [String : String] {
-        var dict = [
+    public var headerFields: [String: String] {
+        var dict: [String: String] = [
             "Accept": "application/vnd.github.v3+json",
         ]
         if let token = GitHubConfig.shared.token, !token.isEmpty {
@@ -55,3 +55,13 @@ extension GitHubRequest where Response: Decodable {
         return try JSONDecoder().decode(Response.self, from: data)
     }
 }
+
+
+#if DEBUG
+extension GitHubRequest {
+    public func intercept(urlRequest: URLRequest) throws -> URLRequest {
+        print("request path >>>>>", urlRequest.url?.absoluteString ?? "")
+        return urlRequest
+    }
+}
+#endif
