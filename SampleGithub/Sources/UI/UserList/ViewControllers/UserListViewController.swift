@@ -9,6 +9,7 @@
 import UIKit
 import Library
 import APIKit
+import RxSwift
 
 final class UserListViewController: UIViewController {
 
@@ -19,33 +20,52 @@ final class UserListViewController: UIViewController {
     }
 
     private var viewModel: UserListViewModel!
+    private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
         setupViewModel()
+        /// WARN: after create VM
+        tableView.tableFooterView = UIView()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.deselectRow()
     }
 
-    @objc func startRequest() {
-        viewModel.fetch { [weak self] in
-            self?.tableView.reloadData()
-        }
-    }
 }
 
 extension UserListViewController {
     private func setupNavigation() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(startRequest))
+        title = "Users"
     }
 
     private func setupViewModel() {
         viewModel = UserListViewModel(
-            usecase: UserInteractor(session: Session.shared)
+            viewViewAppear: rx.viewWillAppear,
+            dependency: UserListViewModel.Dependency(
+                userUseCase: UserInteractor(session: Session.shared)
+            )
         )
+        viewModel.loadingState
+            .drive(onNext: { [weak self] (state) in
+                guard let self = self else { return }
+                switch state {
+                case .loading:
+                    break
+                case .idle:
+                    self.tableView.reloadData()
+                    break
+                case .finished:
+                    self.tableView.reloadData()
+                    break
+                case .failure(let error):
+                    break
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }
 

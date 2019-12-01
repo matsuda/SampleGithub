@@ -12,9 +12,7 @@ import APIKit
 import RxSwift
 
 protocol UserRepoUseCase {
-    func repoList(username: String?,
-                  completion: @escaping (Result<[Repo], SessionTaskError>) -> Void)
-    func fetchRepoList(username: String?) -> Single<[Repo]>
+    func list(with username: String?) -> Single<[Repo]>
 }
 
 final class UserRepoInteractor: UserRepoUseCase {
@@ -24,13 +22,7 @@ final class UserRepoInteractor: UserRepoUseCase {
         self.session = session
     }
 
-    func repoList(username: String?,
-                  completion: @escaping (Result<[Repo], SessionTaskError>) -> Void)  {
-        let request =  UserRepoListRequest(username: username)
-        session.send(request, handler: completion)
-    }
-
-    func fetchRepoList(username: String?) -> Single<[Repo]> {
+    func list(with username: String?) -> Single<[Repo]> {
         let request =  UserRepoListRequest(username: username)
         return session.response(request: request)
     }

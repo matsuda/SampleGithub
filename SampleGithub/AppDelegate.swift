@@ -28,9 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("======================================")
         }
 
-        let navi = window!.rootViewController as! UINavigationController
-        let vc = UserRepoListViewController.make()
-        navi.setViewControllers([vc], animated: true)
+//        let navi = window!.rootViewController as! UINavigationController
+//        let vc = UserRepoListViewController.make()
+//        vc.configure(username: "octocat")
+//        navi.setViewControllers([vc], animated: true)
 
         #if DEBUG
         if let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {

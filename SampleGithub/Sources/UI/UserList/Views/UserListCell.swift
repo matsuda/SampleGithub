@@ -14,7 +14,11 @@ final class UserListCell: UITableViewCell {
     typealias Entity = ListUser
 
     @IBOutlet private weak var iconView: UIImageView!
-    @IBOutlet private weak var usernameLabel: UILabel!
+    @IBOutlet private weak var usernameLabel: UILabel! {
+        didSet {
+            usernameLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

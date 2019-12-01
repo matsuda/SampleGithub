@@ -12,9 +12,8 @@ import APIKit
 import RxSwift
 
 protocol UserUseCase {
-    func list(completion: @escaping (Result<[ListUser], SessionTaskError>) -> Void)
-    func user(with username: String, completion: @escaping (Result<User, SessionTaskError>) -> Void)
-    func fetchUser(with username: String) -> Single<User>
+    func list() -> Single<[ListUser]>
+    func user(with username: String) -> Single<User>
 }
 
 final class UserInteractor: UserUseCase {
@@ -24,17 +23,12 @@ final class UserInteractor: UserUseCase {
         self.session = session
     }
 
-    func list(completion: @escaping (Result<[ListUser], SessionTaskError>) -> Void) {
+    func list() -> Single<[ListUser]> {
         let request = UserListRequest()
-        session.send(request, handler: completion)
-    }
-    
-    func user(with username: String, completion: @escaping (Result<User, SessionTaskError>) -> Void) {
-        let request = UserRequest(username: username)
-        session.send(request, handler: completion)
+        return session.response(request: request)
     }
 
-    func fetchUser(with username: String) -> Single<User> {
+    func user(with username: String) -> Single<User> {
         let request = UserRequest(username: username)
         return session.response(request: request)
     }

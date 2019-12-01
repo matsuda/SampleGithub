@@ -45,7 +45,8 @@ final class UserRepoListViewController: UIViewController {
 
 extension UserRepoListViewController {
     private func setupNavigation() {
-        title = "Repos"
+        let text = "Repos"
+        title = username.flatMap({ "\($0) \(text)" }) ?? text
     }
 
     private func setupViewModel() {

@@ -15,10 +15,6 @@ import RxCocoa
 
 final class UserRepoListViewModel {
 
-    enum LoadingState {
-        case idle, loading, finished, failure(SessionTaskError)
-    }
-
     struct Dependency {
         let userUseCase: UserUseCase
         let repoUseCase: UserRepoUseCase
@@ -49,28 +45,14 @@ final class UserRepoListViewModel {
             .disposed(by: disposeBag)
     }
 
-    func fetchRepos(completion: @escaping () -> Void) {
-        dependency.repoUseCase.repoList(username: username) { (result) in
-            switch result {
-            case .success(let repos):
-                self.repos = repos.filter { !$0.fork }
-//                print("repos >>>", self.repos)
-            case .failure(let error):
-                print("error >>>", error)
-                break
-            }
-            completion()
-        }
-    }
-
     func fetch() {
         if case .loading = _loadingState.value {
             return
         }
 
         _loadingState.accept(.loading)
-        let userRequest = dependency.userUseCase.fetchUser(with: username)
-        let repoRequest = dependency.repoUseCase.fetchRepoList(username: username)
+        let userRequest = dependency.userUseCase.user(with: username)
+        let repoRequest = dependency.repoUseCase.list(with: username)
         Single
             .zip(userRequest, repoRequest)
             .subscribe(onSuccess: { [weak self] (user, repos) in
@@ -82,20 +64,5 @@ final class UserRepoListViewModel {
                 self._loadingState.accept(.failure(error as! SessionTaskError))
             })
             .disposed(by: disposeBag)
-    }
-}
-
-extension UserRepoListViewModel.LoadingState: Equatable {
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        switch (lhs, rhs) {
-        case (.idle, .idle):
-            return true
-        case (.loading, .loading):
-            return true
-        case (.finished, .finished):
-            return true
-        default:
-            return false
-        }
     }
 }
