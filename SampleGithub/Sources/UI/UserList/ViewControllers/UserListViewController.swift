@@ -8,6 +8,7 @@
 
 import UIKit
 import Library
+import APIKit
 
 final class UserListViewController: UIViewController {
 
@@ -43,7 +44,7 @@ extension UserListViewController {
 
     private func setupViewModel() {
         viewModel = UserListViewModel(
-            usecase: UserInteractor()
+            usecase: UserInteractor(session: Session.shared)
         )
     }
 }

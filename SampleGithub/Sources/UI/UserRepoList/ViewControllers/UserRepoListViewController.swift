@@ -8,6 +8,8 @@
 
 import UIKit
 import Library
+import APIKit
+import RxSwift
 
 final class UserRepoListViewController: UIViewController {
 
@@ -19,6 +21,7 @@ final class UserRepoListViewController: UIViewController {
     }
 
     private var viewModel: UserRepoListViewModel!
+    private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,20 +30,40 @@ final class UserRepoListViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        viewModel.fetchRepos() { [weak self] in
-            self?.tableView.reloadData()
-        }
+//        viewModel.fetchRepos() { [weak self] in
+//            self?.tableView.reloadData()
+//        }
     }
 }
 
 extension UserRepoListViewController {
     private func setupViewModel() {
+        let session = Session.shared
         viewModel = UserRepoListViewModel(
             username: "",
+            viewViewAppear: self.rx.viewWillAppear,
             dependency: UserRepoListViewModel.Dependency(
-                usecase: nameUserRepoInteractor()
+                userUseCase: UserInteractor(session: session),
+                repoUseCase: UserRepoInteractor(session: session)
             )
         )
+        viewModel.loadingState
+            .drive(onNext: { [weak self] (state) in
+                guard let self = self else { return }
+                switch state {
+                case .loading:
+                    break
+                case .idle:
+                    self.tableView.reloadData()
+                    break
+                case .finished:
+                    self.tableView.reloadData()
+                    break
+                case .failure(let error):
+                    break
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }
 

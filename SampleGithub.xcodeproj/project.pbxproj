@@ -36,6 +36,8 @@
 		0E8837542392AA40007714BB /* RepoListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8837522392AA40007714BB /* RepoListCell.xib */; };
 		0E8837582392DEA2007714BB /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8837572392DEA2007714BB /* WebViewController.swift */; };
 		0E88375A2392DEAD007714BB /* WebViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E8837592392DEAD007714BB /* WebViewController.storyboard */; };
+		0E8DA50D2393A15D00B0091F /* APIKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DA50C2393A15D00B0091F /* APIKit+Extensions.swift */; };
+		0E8DA50F2393AF6400B0091F /* RxSwift+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DA50E2393AF6400B0091F /* RxSwift+Extensions.swift */; };
 		0EA1FED2239035EF00D23AD6 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA1FED0239035EF00D23AD6 /* UserListCell.swift */; };
 		0EA1FED3239035EF00D23AD6 /* UserListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EA1FED1239035EF00D23AD6 /* UserListCell.xib */; };
 		0EA1FED723903A5900D23AD6 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA1FED623903A5900D23AD6 /* UIImageView+Extensions.swift */; };
@@ -169,6 +171,8 @@
 		0E8837522392AA40007714BB /* RepoListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoListCell.xib; sourceTree = "<group>"; };
 		0E8837572392DEA2007714BB /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		0E8837592392DEAD007714BB /* WebViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebViewController.storyboard; sourceTree = "<group>"; };
+		0E8DA50C2393A15D00B0091F /* APIKit+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIKit+Extensions.swift"; sourceTree = "<group>"; };
+		0E8DA50E2393AF6400B0091F /* RxSwift+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxSwift+Extensions.swift"; sourceTree = "<group>"; };
 		0EA1FED0239035EF00D23AD6 /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
 		0EA1FED1239035EF00D23AD6 /* UserListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListCell.xib; sourceTree = "<group>"; };
 		0EA1FED623903A5900D23AD6 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
@@ -466,6 +470,8 @@
 			isa = PBXGroup;
 			children = (
 				0EA1FED623903A5900D23AD6 /* UIImageView+Extensions.swift */,
+				0E8DA50C2393A15D00B0091F /* APIKit+Extensions.swift */,
+				0E8DA50E2393AF6400B0091F /* RxSwift+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -828,6 +834,8 @@
 				0EA1FED2239035EF00D23AD6 /* UserListCell.swift in Sources */,
 				0E8837582392DEA2007714BB /* WebViewController.swift in Sources */,
 				0EA1FED723903A5900D23AD6 /* UIImageView+Extensions.swift in Sources */,
+				0E8DA50D2393A15D00B0091F /* APIKit+Extensions.swift in Sources */,
+				0E8DA50F2393AF6400B0091F /* RxSwift+Extensions.swift in Sources */,
 				0E0C0AEE238ED49F00FDEEBA /* UserInteractor.swift in Sources */,
 				0E8837532392AA40007714BB /* RepoListCell.swift in Sources */,
 				0EA80FFB2392A228004553D7 /* UserRepoInteractor.swift in Sources */,

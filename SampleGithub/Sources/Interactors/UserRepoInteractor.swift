@@ -9,16 +9,29 @@
 import Foundation
 import API
 import APIKit
+import RxSwift
 
 protocol UserRepoUseCase {
     func repoList(username: String?,
                   completion: @escaping (Result<[Repo], SessionTaskError>) -> Void)
+    func fetchRepoList(username: String?) -> Single<[Repo]>
 }
 
-final class nameUserRepoInteractor: UserRepoUseCase {
+final class UserRepoInteractor: UserRepoUseCase {
+    let session: Session
+
+    init(session: Session) {
+        self.session = session
+    }
+
     func repoList(username: String?,
                   completion: @escaping (Result<[Repo], SessionTaskError>) -> Void)  {
         let request =  UserRepoListRequest(username: username)
-        Session.send(request, handler: completion)
+        session.send(request, handler: completion)
+    }
+
+    func fetchRepoList(username: String?) -> Single<[Repo]> {
+        let request =  UserRepoListRequest(username: username)
+        return session.response(request: request)
     }
 }
