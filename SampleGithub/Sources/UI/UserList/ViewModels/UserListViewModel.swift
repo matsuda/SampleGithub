@@ -39,6 +39,10 @@ final class UserListViewModel {
     private let disposeBag = DisposeBag()
     private var nextPage: Int?
 
+    deinit {
+        print(self, ":", #function)
+    }
+
     init(viewWillAppear: Observable<Void>,
          didRefresh: Observable<Bool>,
          dependency: Dependency) {

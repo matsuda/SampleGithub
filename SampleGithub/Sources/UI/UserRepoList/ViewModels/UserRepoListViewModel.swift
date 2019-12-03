@@ -45,7 +45,9 @@ final class UserRepoListViewModel {
     private let disposeBag = DisposeBag()
     private var nextPage: Int?
 
-    /// output
+    deinit {
+        print(self, ":", #function)
+    }
 
     init(username: String,
          viewWillAppear: Observable<Void>,

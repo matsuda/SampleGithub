@@ -24,6 +24,10 @@ final class UserListViewController: UIViewController {
     private var viewModel: UserListViewModel!
     private let disposeBag = DisposeBag()
 
+    deinit {
+        print(self, ":", #function)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
@@ -65,7 +69,11 @@ extension UserListViewController {
                 userUseCase: UserInteractor(session: Session.shared)
             )
         )
-        viewModel.loadingState.drive(onNext: handle(loadingState:)).disposed(by: disposeBag)
+        viewModel.loadingState
+            .drive(onNext: { [weak self] (state) in
+                self?.handle(loadingState: state)
+            })
+            .disposed(by: disposeBag)
         viewModel.isRefreshing.drive(refreshControl.rx.isRefreshing).disposed(by: disposeBag)
     }
 

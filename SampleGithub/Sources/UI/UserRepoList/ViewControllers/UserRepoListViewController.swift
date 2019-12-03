@@ -28,6 +28,10 @@ final class UserRepoListViewController: UIViewController {
     private var viewModel: UserRepoListViewModel!
     private let disposeBag = DisposeBag()
 
+    deinit {
+        print(self, ":", #function)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
@@ -81,7 +85,11 @@ extension UserRepoListViewController {
                 repoUseCase: UserRepoInteractor(session: session)
             )
         )
-        viewModel.loadingState.drive(onNext: handle(loadingState:)).disposed(by: disposeBag)
+        viewModel.loadingState
+            .drive(onNext: { [weak self] (state) in
+                self?.handle(loadingState: state)
+            })
+            .disposed(by: disposeBag)
         viewModel.isRefreshing.drive(refreshControl.rx.isRefreshing).disposed(by: disposeBag)
     }
 
