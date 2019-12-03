@@ -37,6 +37,16 @@ final class WebViewController: UIViewController {
         loadWeb()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupProgressView()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        progressView.removeFromSuperview()
+    }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         webView.scrollView.contentInset = {
@@ -107,6 +117,7 @@ extension WebViewController {
     }
 
     private func setupProgressView() {
+        guard progressView.superview == nil else { return }
         guard let naviBar = navigationController?.navigationBar else {
             return
         }
