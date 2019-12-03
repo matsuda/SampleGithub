@@ -8,6 +8,7 @@
 
 import UIKit
 import API
+import SVProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,12 +29,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("======================================")
         }
 
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setMaximumDismissTimeInterval(1.0)
+
 //        let navi = window!.rootViewController as! UINavigationController
 //        let vc = UserRepoListViewController.make()
 //        vc.configure(username: "octocat")
 //        navi.setViewControllers([vc], animated: true)
 
         #if DEBUG
+//        URLCache.shared.removeAllCachedResponses()
         if let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
             print("documentDirectory >>>>>", path)
         }

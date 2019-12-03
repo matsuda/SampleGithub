@@ -30,8 +30,8 @@ final class UserRepoListViewModel {
         return _loadingState.distinctUntilChanged().asDriver(onErrorDriveWith: .empty())
     }
     var isRefreshing: Driver<Bool> {
-        loadingState.map { [unowned self] (state) -> Bool in
-            if case .loading(let isFirst) = state, isFirst && !self.repos.isEmpty {
+        loadingState.map { (state) -> Bool in
+            if case .loading(true) = state {
                 return true
             }
             return false

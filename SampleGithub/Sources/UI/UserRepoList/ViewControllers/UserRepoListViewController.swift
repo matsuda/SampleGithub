@@ -10,6 +10,7 @@ import UIKit
 import Library
 import APIKit
 import RxSwift
+import SVProgressHUD
 
 final class UserRepoListViewController: UIViewController {
 
@@ -96,7 +97,7 @@ extension UserRepoListViewController {
     private func handle(loadingState: LoadingState) {
         switch loadingState {
         case .loading(isFirst: true):
-            updateTableFooterView(animated: true)
+            updateTableFooterView(animated: false)
         case .loading(isFirst: false):
             updateTableFooterView(animated: true)
         case .idle:
@@ -108,8 +109,8 @@ extension UserRepoListViewController {
             updateTableFooterView(animated: false)
             tableView.reloadData()
         case .failure(let error):
-            print("error >>>", error)
             updateTableFooterView(animated: false)
+            SVProgressHUD.showError(withStatus: error.localizedDescription)
         }
     }
 
