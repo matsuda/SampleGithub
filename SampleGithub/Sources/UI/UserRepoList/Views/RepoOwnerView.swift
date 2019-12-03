@@ -102,11 +102,11 @@ final class SeparatorBackgroundView: UIView {
             layer.backgroundColor = separatorColor.cgColor
             self.layer.addSublayer(layer)
         }
-        do {
-            let layer = CALayer()
-            layer.backgroundColor = separatorColor.cgColor
-            self.layer.addSublayer(layer)
-        }
+//        do {
+//            let layer = CALayer()
+//            layer.backgroundColor = separatorColor.cgColor
+//            self.layer.addSublayer(layer)
+//        }
     }
 
     override func layoutSubviews() {
@@ -116,9 +116,9 @@ final class SeparatorBackgroundView: UIView {
             layer.frame = CGRect(x: 0, y: 0,
                                  width: bounds.width, height: height)
         }
-        if let layer = layer.sublayers?.last {
-            layer.frame = CGRect(x: 0, y: bounds.maxY - height,
-                                 width: bounds.width, height: height)
-        }
+//        if let layer = layer.sublayers?.last {
+//            layer.frame = CGRect(x: 0, y: bounds.maxY - height,
+//                                 width: bounds.width, height: height)
+//        }
     }
 }

@@ -19,6 +19,7 @@ final class UserListViewController: UIViewController {
         }
     }
     private let pagingView: LoadingView = .loadNib()
+    private let refreshControl: UIRefreshControl = .init()
 
     private var viewModel: UserListViewModel!
     private let disposeBag = DisposeBag()
@@ -26,6 +27,7 @@ final class UserListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
+        setupRefreshControl()
         setupViewModel()
         /// WARN: after create VM
         tableView.tableFooterView = UIView()
@@ -43,18 +45,24 @@ extension UserListViewController {
         title = "Users"
     }
 
+    private func setupRefreshControl() {
+        tableView.refreshControl = refreshControl
+    }
+
     private func setupViewModel() {
+        let didRefresh = refreshControl.rx.controlEvent(.valueChanged)
+            .map { [unowned self] (_) -> Bool in
+                self.refreshControl.isRefreshing
+            }
         viewModel = UserListViewModel(
-            viewViewAppear: rx.viewWillAppear,
+            viewWillAppear: rx.viewWillAppear,
+            didRefresh: didRefresh,
             dependency: UserListViewModel.Dependency(
                 userUseCase: UserInteractor(session: Session.shared)
             )
         )
-        viewModel.loadingState
-            .drive(onNext: { [weak self] (state) in
-                self?.handle(loadingState: state)
-            })
-            .disposed(by: disposeBag)
+        viewModel.loadingState.drive(onNext: handle(loadingState:)).disposed(by: disposeBag)
+        viewModel.isRefreshing.drive(refreshControl.rx.isRefreshing).disposed(by: disposeBag)
     }
 
     private func handle(loadingState: LoadingState) {

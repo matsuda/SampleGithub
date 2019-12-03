@@ -15,12 +15,14 @@ final class UserRepoListViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
+            tableView.backgroundColor = Theme.Color.separator
             tableView.registerNib(RepoListCell.self)
             tableView.rowHeight = UITableView.automaticDimension
         }
     }
     private let headerView: RepoOwnerView = .loadNib()
     private let pagingView: LoadingView = .loadNib()
+    private let refreshControl: UIRefreshControl = .init()
 
     private var username: String?
     private var viewModel: UserRepoListViewModel!
@@ -29,6 +31,7 @@ final class UserRepoListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
+        setupRefreshControl()
         setupViewModel()
         /// WARN: after create VM
         tableView.tableFooterView = UIView()
@@ -50,38 +53,45 @@ extension UserRepoListViewController {
         title = username.flatMap({ "\($0) \(text)" }) ?? text
     }
 
+    private func setupRefreshControl() {
+        tableView.refreshControl = refreshControl
+    }
+
     private func setupViewModel() {
         guard let username = username else {
             fatalError("username is missing")
         }
 
+        let didRefresh = refreshControl.rx.controlEvent(.valueChanged)
+            .map { [unowned self] (_) -> Bool in
+                self.refreshControl.isRefreshing
+        }
         let session = Session.shared
         viewModel = UserRepoListViewModel(
             username: username,
-            viewViewAppear: rx.viewWillAppear,
+            viewWillAppear: rx.viewWillAppear,
+            didRefresh: didRefresh,
             dependency: UserRepoListViewModel.Dependency(
                 userUseCase: UserInteractor(session: session),
                 repoUseCase: UserRepoInteractor(session: session)
             )
         )
-        viewModel.loadingState
-            .drive(onNext: handle(loadingState:))
-            .disposed(by: disposeBag)
+        viewModel.loadingState.drive(onNext: handle(loadingState:)).disposed(by: disposeBag)
+        viewModel.isRefreshing.drive(refreshControl.rx.isRefreshing).disposed(by: disposeBag)
     }
 
     private func handle(loadingState: LoadingState) {
         switch loadingState {
         case .loading(isFirst: true):
-            updateTableHeaderView()
             updateTableFooterView(animated: true)
         case .loading(isFirst: false):
             updateTableFooterView(animated: true)
         case .idle:
-            updateTableHeaderView()
+            updateHeaderView()
             updateTableFooterView(animated: true)
             tableView.reloadData()
         case .finished:
-            updateTableHeaderView()
+            updateHeaderView()
             updateTableFooterView(animated: false)
             tableView.reloadData()
         case .failure(let error):
@@ -90,14 +100,28 @@ extension UserRepoListViewController {
         }
     }
 
-    private func updateTableHeaderView() {
-        if let user = viewModel.user {
-            headerView.configure(user)
-            tableView.tableHeaderView = headerView
-            tableView.sizeToFitHeaderView()
-        } else {
-            tableView.tableHeaderView = nil
-        }
+    private func updateHeaderView() {
+        guard headerView.superview == nil else { return }
+        guard let user = viewModel.user else { return }
+        headerView.configure(user)
+        var size = CGSize(width: view.frame.width, height: UIView.layoutFittingCompressedSize.height)
+        size = headerView.systemLayoutSizeFitting(size,
+                                                  withHorizontalFittingPriority: .required,
+                                                  verticalFittingPriority: .fittingSizeLevel)
+        view.addSubview(headerView)
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            headerView.heightAnchor.constraint(equalToConstant: size.height),
+        ])
+        let margin: CGFloat = 12
+        tableView.contentInset = {
+            var inset = tableView.contentInset
+            inset.top = size.height + margin
+            return inset
+        }()
     }
 
     private func updateTableFooterView(animated: Bool) {

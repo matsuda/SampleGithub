@@ -29,6 +29,16 @@ final class UserRepoListViewModel {
     var loadingState: Driver<LoadingState> {
         return _loadingState.distinctUntilChanged().asDriver(onErrorDriveWith: .empty())
     }
+    var isRefreshing: Driver<Bool> {
+        loadingState.map { [unowned self] (state) -> Bool in
+            if case .loading(let isFirst) = state, isFirst && !self.repos.isEmpty {
+                return true
+            }
+            return false
+        }
+        .distinctUntilChanged()
+        .asDriver()
+    }
 
     private let username: String
     private let dependency: Dependency
@@ -38,20 +48,22 @@ final class UserRepoListViewModel {
     /// output
 
     init(username: String,
-         viewViewAppear: Observable<Void>,
+         viewWillAppear: Observable<Void>,
+         didRefresh: Observable<Bool>,
          dependency: Dependency) {
         self.username = username
         self.dependency = dependency
-        viewViewAppear.take(1)
+
+        let firstViewWillAppear = viewWillAppear.take(1)
+        let isRefreshing = didRefresh.filter { $0 }.void()
+
+        Observable.merge(
+            firstViewWillAppear,
+            isRefreshing)
             .subscribe(onNext: { [weak self] (_) in
                 self?.fetch()
             })
             .disposed(by: disposeBag)
-    }
-
-    func refresh() {
-        _loadingState.accept(.idle)
-        fetch()
     }
 
     func pagingIfNeeded(at index: Int) {
@@ -61,23 +73,25 @@ final class UserRepoListViewModel {
         fetch(isFirst: false)
     }
 
-    func fetch(isFirst: Bool = true) {
+    private func fetch(isFirst: Bool = true) {
         switch _loadingState.value {
-        case .loading, .finished: return
+        case .loading: return
+        case .finished where !isFirst: return
         default: break
         }
 
         _loadingState.accept(.loading(isFirst: isFirst))
+        let page: Int? = isFirst ? nil : nextPage
 
         let first = Single<Bool>.just(isFirst)
         Single
-            .zip(request(isFirst: isFirst), first)
+            .zip(request(page: page, isFirst: isFirst), first)
             .subscribe(onSuccess: handle(response:isFirst:), onError: handle(error:))
             .disposed(by: disposeBag)
     }
 
-    private func request(isFirst: Bool = true) -> Single<Element> {
-        let repoRequest = dependency.repoUseCase.list(with: username, page: nextPage)
+    private func request(page: Int?, isFirst: Bool = true) -> Single<Element> {
+        let repoRequest = dependency.repoUseCase.list(with: username, page: page)
         if isFirst {
             let userRequest = dependency.userUseCase.user(with: username)
             return Single.zip(userRequest, repoRequest).map { ($0.0, $0.1) }

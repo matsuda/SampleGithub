@@ -24,24 +24,36 @@ final class UserListViewModel {
     var loadingState: Driver<LoadingState> {
         return _loadingState.distinctUntilChanged().asDriver(onErrorDriveWith: .empty())
     }
+    var isRefreshing: Driver<Bool> {
+        loadingState.map { [unowned self] (state) -> Bool in
+            if case .loading(let isFirst) = state, isFirst && !self.users.isEmpty {
+                return true
+            }
+            return false
+        }
+        .distinctUntilChanged()
+        .asDriver()
+    }
 
     private let dependency: Dependency
     private let disposeBag = DisposeBag()
     private var nextPage: Int?
 
-    init(viewViewAppear: Observable<Void>,
+    init(viewWillAppear: Observable<Void>,
+         didRefresh: Observable<Bool>,
          dependency: Dependency) {
         self.dependency = dependency
-        viewViewAppear.take(1)
+
+        let firstViewWillAppear = viewWillAppear.take(1)
+        let isRefreshing = didRefresh.filter { $0 }.void()
+
+        Observable.merge(
+            firstViewWillAppear,
+            isRefreshing)
             .subscribe(onNext: { [weak self] (_) in
                 self?.fetch()
             })
             .disposed(by: disposeBag)
-    }
-
-    func refresh() {
-        _loadingState.accept(.idle)
-        fetch()
     }
 
     func pagingIfNeeded(at index: Int) {
@@ -53,14 +65,16 @@ final class UserListViewModel {
 
     private func fetch(isFirst: Bool = true) {
         switch _loadingState.value {
-        case .loading, .finished: return
+        case .loading: return
+        case .finished where !isFirst: return
         default: break
         }
 
         _loadingState.accept(.loading(isFirst: isFirst))
+        let page: Int? = isFirst ? nil : nextPage
 
         let first = Single<Bool>.just(isFirst)
-        let request = dependency.userUseCase.list(page: nextPage)
+        let request = dependency.userUseCase.list(page: page)
         Single.zip(request, first)
             .subscribe(onSuccess: handle(response:isFirst:),
                        onError: handle(error:))
