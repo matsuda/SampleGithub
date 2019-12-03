@@ -30,6 +30,7 @@ final class WebViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigation()
         setupWebView()
         setupProgressView()
         setupEstimatedProgressObserver()
@@ -46,8 +47,13 @@ final class WebViewController: UIViewController {
     }
 
     deinit {
+        #if DEBUG
+        print(self, ":", #function)
+        #endif
         estimatedProgressObserver = nil
         titleObserver = nil
+        webView.navigationDelegate = nil
+        webView.uiDelegate = nil
     }
 
     func configure(url: URL) {
@@ -61,9 +67,40 @@ final class WebViewController: UIViewController {
     @IBAction func tapForwardButton(_ sender: Any) {
         webView.goForward()
     }
+
+    @objc private func back() {
+        if webView.canGoBack {
+            webView.goBack()
+            return
+        }
+        dismissOrPopViewController()
+    }
+
+    @objc private func close() {
+        dismissOrPopViewController()
+    }
+
+    private func dismissOrPopViewController(animated: Bool = true) {
+        if presentingViewController == nil {
+            navigationController?.popViewController(animated: animated)
+        } else {
+            dismiss(animated: animated)
+        }
+    }
 }
 
 extension WebViewController {
+    private func setupNavigation() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "back"),
+                                                           style: .plain,
+                                                           target: self,
+                                                           action: #selector(back))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "close"),
+                                                           style: .plain,
+                                                           target: self,
+                                                           action: #selector(close))
+    }
+
     private func setupWebView() {
         webView.navigationDelegate = self
         webView.allowsBackForwardNavigationGestures = true

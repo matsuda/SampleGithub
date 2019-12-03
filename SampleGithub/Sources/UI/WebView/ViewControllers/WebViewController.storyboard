@@ -32,6 +32,7 @@
                                             <action selector="tapBackButton:" destination="FCD-EA-TAw" id="W8g-8b-t1g"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem width="42" systemItem="fixedSpace" id="K5S-zz-7rX"/>
                                     <barButtonItem image="forward" id="7iH-Cq-Gim">
                                         <connections>
                                             <action selector="tapForwardButton:" destination="FCD-EA-TAw" id="Jts-PB-5t6"/>
