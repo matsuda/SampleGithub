@@ -16,7 +16,7 @@ final class UserListCell: UITableViewCell {
     @IBOutlet private weak var iconView: UIImageView!
     @IBOutlet private weak var usernameLabel: UILabel! {
         didSet {
-            usernameLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+            usernameLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         }
     }
 

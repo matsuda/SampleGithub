@@ -15,48 +15,47 @@ final class RepoOwnerView: UIView {
     @IBOutlet private weak var avatarView: UIImageView!
     @IBOutlet private weak var loginLabel: UILabel! {
         didSet {
-            loginLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+            loginLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
             loginLabel.textColor = Theme.Color.link
         }
     }
     @IBOutlet private weak var nameLabel: UILabel! {
         didSet {
-            nameLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+            nameLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        }
+    }
+    @IBOutlet private weak var locationLabel: UILabel! {
+        didSet {
+            locationLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+            locationLabel.textColor = UIColor(white: 0.4, alpha: 1.0)
+        }
+    }
+    @IBOutlet private weak var bioLabel: UILabel! {
+        didSet {
+            bioLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         }
     }
     @IBOutlet private weak var reposLabel: UILabel! {
         didSet {
-            reposLabel.font = UIFont.systemFont(ofSize: 10, weight: .bold)
+            reposLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         }
     }
     @IBOutlet private weak var followersLabel: UILabel! {
         didSet {
-            followersLabel.font = UIFont.systemFont(ofSize: 10, weight: .bold)
+            followersLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         }
     }
     @IBOutlet private weak var followingLabel: UILabel! {
         didSet {
-            followingLabel.font = UIFont.systemFont(ofSize: 10, weight: .bold)
+            followingLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         }
     }
     @IBOutlet private var countCaptionLabels: [UILabel]! {
         didSet {
             countCaptionLabels.forEach {
                 $0.font = UIFont.systemFont(ofSize: 10, weight: .bold)
-                $0.textColor = UIColor.gray
+                $0.textColor = UIColor.lightGray
             }
-        }
-    }
-    @IBOutlet private weak var locationLabel: UILabel! {
-        didSet {
-            locationLabel.font = UIFont.systemFont(ofSize: 10, weight: .regular)
-            locationLabel.textColor = UIColor.gray
-        }
-    }
-    @IBOutlet private weak var bioLabel: UILabel! {
-        didSet {
-            bioLabel.font = UIFont.systemFont(ofSize: 10, weight: .regular)
-            bioLabel.textColor = UIColor.gray
         }
     }
     @IBOutlet private weak var separatorView: UIView! {
@@ -68,7 +67,7 @@ final class RepoOwnerView: UIView {
     func configure(_ entity: Entity) {
         avatarView.loadImage(with: entity.avatarUrl)
         loginLabel.text = entity.login
-        nameLabel.text = "(\(entity.name))"
+        nameLabel.text = entity.name.flatMap { "(\($0))" }
         reposLabel.text = "\(entity.publicRepos)"
         followersLabel.text = "\(entity.followers)"
         followingLabel.text = "\(entity.following)"

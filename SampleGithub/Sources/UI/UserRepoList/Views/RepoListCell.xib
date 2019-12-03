@@ -17,8 +17,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="293" height="140"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="hys-rq-dc7">
-                        <rect key="frame" x="24" y="8" width="261" height="65"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hys-rq-dc7">
+                        <rect key="frame" x="24" y="8" width="261" height="97"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="pLS-aO-D3J">
                                 <rect key="frame" x="0.0" y="0.0" width="261" height="20.5"/>
@@ -38,14 +38,26 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample for GitHubAPI" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCA-hx-AuP">
-                                <rect key="frame" x="0.0" y="24.5" width="261" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OTb-Xv-5vl">
+                                <rect key="frame" x="0.0" y="20.5" width="261" height="60.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample for GitHubAPI" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCA-hx-AuP">
+                                        <rect key="frame" x="0.0" y="4" width="261" height="40.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ZCA-hx-AuP" firstAttribute="leading" secondItem="OTb-Xv-5vl" secondAttribute="leading" id="Zum-8q-JhI"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZCA-hx-AuP" secondAttribute="bottom" constant="16" id="smC-g5-bbe"/>
+                                    <constraint firstItem="ZCA-hx-AuP" firstAttribute="top" secondItem="OTb-Xv-5vl" secondAttribute="top" constant="4" id="ss2-lM-cpm"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZCA-hx-AuP" secondAttribute="trailing" id="tXR-5d-u7O"/>
+                                </constraints>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Z2S-kg-ph2">
-                                <rect key="frame" x="0.0" y="49" width="261" height="16"/>
+                                <rect key="frame" x="0.0" y="81" width="261" height="16"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="kV1-58-PYC">
                                         <rect key="frame" x="0.0" y="0.0" width="87" height="16"/>

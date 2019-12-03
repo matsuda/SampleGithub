@@ -11,7 +11,7 @@ import Foundation
 public struct User: Decodable {
     public let avatarUrl: String
     public let login: String
-    public let name: String
+    public let name: String?
     public let location: String?
     public let bio: String?
     public let publicRepos: Int

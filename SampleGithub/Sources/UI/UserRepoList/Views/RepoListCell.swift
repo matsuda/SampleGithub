@@ -22,22 +22,22 @@ final class RepoListCell: UITableViewCell {
     @IBOutlet private weak var descriptionLabel: UILabel! {
         didSet {
             descriptionLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
-            descriptionLabel.textColor = UIColor.gray
+            descriptionLabel.textColor = UIColor(white: 0.4, alpha: 1.0)
         }
     }
     @IBOutlet private weak var languageLabel: UILabel! {
         didSet {
-            languageLabel.font = UIFont.systemFont(ofSize: 10, weight: .regular)
+            languageLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         }
     }
     @IBOutlet private weak var starsLabel: UILabel! {
         didSet {
-            starsLabel.font = UIFont.systemFont(ofSize: 10, weight: .regular)
+            starsLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         }
     }
     @IBOutlet private weak var forksLabel: UILabel! {
         didSet {
-            forksLabel.font = UIFont.systemFont(ofSize: 10, weight: .regular)
+            forksLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         }
     }
 
