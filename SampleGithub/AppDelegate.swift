@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 //        let navi = window!.rootViewController as! UINavigationController
 //        let vc = UserRepoListViewController.make()
-//        vc.configure(username: "octocat")
+//        vc.configure(username: "defunkt")
 //        navi.setViewControllers([vc], animated: true)
 
         #if DEBUG

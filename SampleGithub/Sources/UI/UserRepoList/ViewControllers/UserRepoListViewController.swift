@@ -24,6 +24,7 @@ final class UserRepoListViewController: UIViewController {
     private let headerView: RepoOwnerView = .loadNib()
     private let pagingView: LoadingView = .loadNib()
     private let refreshControl: UIRefreshControl = .init()
+    private var headerViewTopConstraint: NSLayoutConstraint?
 
     private var username: String?
     private var viewModel: UserRepoListViewModel!
@@ -124,18 +125,22 @@ extension UserRepoListViewController {
                                                   verticalFittingPriority: .fittingSizeLevel)
         view.addSubview(headerView)
         headerView.translatesAutoresizingMaskIntoConstraints = false
+        let topConstraint = headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+        headerViewTopConstraint = topConstraint
         NSLayoutConstraint.activate([
-            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            topConstraint,
             headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             headerView.heightAnchor.constraint(equalToConstant: size.height),
         ])
         let margin: CGFloat = 12
-        tableView.contentInset = {
+        let inset: UIEdgeInsets = {
             var inset = tableView.contentInset
             inset.top = size.height + margin
             return inset
         }()
+        tableView.contentInset = inset
+        tableView.scrollIndicatorInsets = inset
     }
 
     private func updateTableFooterView(animated: Bool) {
@@ -178,5 +183,20 @@ extension UserRepoListViewController: UITableViewDelegate {
         let vc = WebViewController.make()
         vc.configure(url: url)
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+
+// MARK: - UIScrollViewDelegate
+
+extension UserRepoListViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard viewModel.user != nil else { return }
+        guard let topConstraint = headerViewTopConstraint else { return }
+        let offsetY = scrollView.contentOffset.y
+        let insetTop = scrollView.contentInset.top
+        let topGuide = scrollView.safeAreaInsets.top
+        let dest = -(insetTop + topGuide + offsetY)
+        topConstraint.constant = min(0.0, dest)
     }
 }
