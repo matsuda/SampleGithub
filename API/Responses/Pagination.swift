@@ -8,28 +8,28 @@
 
 import Foundation
 
+// MARK: - PaginationResponse
+
 public protocol PaginationResponse {
     associatedtype Element: Decodable
     var elements: Element { get }
-    var nextURI: String? { get }
-    init(elements: Element, nextURI: String?)
+    var nextPage: Int? { get }
+    init(elements: Element, nextPage: Int?)
 }
 
-//public struct AnyPaginationResponse<Element: Decodable>: PaginationResponse {
-//    public let elements: Element
-//    public let nextLink: String?
-//
-//    init<Response: PaginationResponse>(response: Response) where Response.Element == Element {
-//        elements = response.elements
-//        page = response.page
-//        nextPage = response.nextPage
-//    }
-//
-//    public init(elements: Element, page: Int, nextPage: Int?) {
-//        self.elements = elements
-//        self.page = page
-//        self.nextPage = nextPage
-//    }
-//}
 
-public protocol PaginationRequest: GitHubRequest where Response: PaginationResponse {}
+// MARK: - PaginationRequest
+
+public protocol PaginationRequest: GitHubRequest where Response: PaginationResponse {
+    var nextPageKey: String { get }
+    var page: Int? { get set }
+}
+
+extension PaginationRequest {
+    public var queryParameters: [String : Any]? {
+        if let page = page {
+            return [nextPageKey: page]
+        }
+        return nil
+    }
+}

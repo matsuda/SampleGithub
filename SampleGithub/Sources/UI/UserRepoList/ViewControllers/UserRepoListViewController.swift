@@ -20,6 +20,7 @@ final class UserRepoListViewController: UIViewController {
         }
     }
     private let headerView: RepoOwnerView = .loadNib()
+    private let pagingView: LoadingView = .loadNib()
 
     private var username: String?
     private var viewModel: UserRepoListViewModel!
@@ -64,24 +65,29 @@ extension UserRepoListViewController {
             )
         )
         viewModel.loadingState
-            .drive(onNext: { [weak self] (state) in
-                guard let self = self else { return }
-                switch state {
-                case .loading:
-                    break
-                case .idle:
-                    self.updateTableHeaderView()
-                    self.tableView.reloadData()
-                    break
-                case .finished:
-                    self.updateTableHeaderView()
-                    self.tableView.reloadData()
-                    break
-                case .failure(let error):
-                    break
-                }
-            })
+            .drive(onNext: handle(loadingState:))
             .disposed(by: disposeBag)
+    }
+
+    private func handle(loadingState: LoadingState) {
+        switch loadingState {
+        case .loading(isFirst: true):
+            updateTableHeaderView()
+            updateTableFooterView(animated: true)
+        case .loading(isFirst: false):
+            updateTableFooterView(animated: true)
+        case .idle:
+            updateTableHeaderView()
+            updateTableFooterView(animated: true)
+            tableView.reloadData()
+        case .finished:
+            updateTableHeaderView()
+            updateTableFooterView(animated: false)
+            tableView.reloadData()
+        case .failure(let error):
+            print("error >>>", error)
+            updateTableFooterView(animated: false)
+        }
     }
 
     private func updateTableHeaderView() {
@@ -91,6 +97,16 @@ extension UserRepoListViewController {
             tableView.sizeToFitHeaderView()
         } else {
             tableView.tableHeaderView = nil
+        }
+    }
+
+    private func updateTableFooterView(animated: Bool) {
+        if animated {
+            pagingView.startAnimating()
+            tableView.tableFooterView = pagingView
+        } else {
+            pagingView.stopAnimating()
+            tableView.tableFooterView = UIView()
         }
     }
 }
@@ -104,9 +120,13 @@ extension UserRepoListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(RepoListCell.self, for: indexPath)
-        let entity = viewModel.repos[indexPath.row]
-        cell.configure(entity)
+        let repo = viewModel.repos[indexPath.row]
+        cell.configure(repo)
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        viewModel.pagingIfNeeded(at: indexPath.row)
     }
 }
 
@@ -116,9 +136,7 @@ extension UserRepoListViewController: UITableViewDataSource {
 extension UserRepoListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let entity = viewModel.repos[indexPath.row]
-        guard let url = URL(string: entity.htmlUrl) else {
-            return
-        }
+        guard let url = URL(string: entity.htmlUrl) else { return }
         let vc = WebViewController.make()
         vc.configure(url: url)
         navigationController?.pushViewController(vc, animated: true)

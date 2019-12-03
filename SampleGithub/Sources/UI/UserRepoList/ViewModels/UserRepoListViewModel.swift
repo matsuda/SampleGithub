@@ -15,6 +15,8 @@ import RxCocoa
 
 final class UserRepoListViewModel {
 
+    typealias Element = (User?, RepoListResponse<[Repo]>)
+
     struct Dependency {
         let userUseCase: UserUseCase
         let repoUseCase: UserRepoUseCase
@@ -22,6 +24,7 @@ final class UserRepoListViewModel {
 
     private(set) var user: User?
     private(set) var repos: [Repo] = []
+
     private let _loadingState: BehaviorRelay<LoadingState> = .init(value: .idle)
     var loadingState: Driver<LoadingState> {
         return _loadingState.distinctUntilChanged().asDriver(onErrorDriveWith: .empty())
@@ -30,6 +33,7 @@ final class UserRepoListViewModel {
     private let username: String
     private let dependency: Dependency
     private let disposeBag = DisposeBag()
+    private var nextPage: Int?
 
     /// output
 
@@ -45,24 +49,62 @@ final class UserRepoListViewModel {
             .disposed(by: disposeBag)
     }
 
+    func refresh() {
+        _loadingState.accept(.idle)
+        fetch()
+    }
+
+    func pagingIfNeeded(at index: Int) {
+        let threshold = 10
+        let shouldLoad: Bool = (repos.count - index < threshold)
+        guard shouldLoad else { return }
+        fetch(isFirst: false)
+    }
+
     func fetch(isFirst: Bool = true) {
-        if case .loading = _loadingState.value {
-            return
+        switch _loadingState.value {
+        case .loading, .finished: return
+        default: break
         }
 
         _loadingState.accept(.loading(isFirst: isFirst))
-        let userRequest = dependency.userUseCase.user(with: username)
-        let repoRequest = dependency.repoUseCase.list(with: username)
+
+        let first = Single<Bool>.just(isFirst)
         Single
-            .zip(userRequest, repoRequest)
-            .subscribe(onSuccess: { [weak self] (user, repos) in
-                self?.user = user
-                self?.repos = repos
-                self?._loadingState.accept(.idle)
-            }, onError: { error in
-                print("error >>>>", error)
-                self._loadingState.accept(.failure(error as! SessionTaskError))
-            })
+            .zip(request(isFirst: isFirst), first)
+            .subscribe(onSuccess: handle(response:isFirst:), onError: handle(error:))
             .disposed(by: disposeBag)
+    }
+
+    private func request(isFirst: Bool = true) -> Single<Element> {
+        let repoRequest = dependency.repoUseCase.list(with: username, page: nextPage)
+        if isFirst {
+            let userRequest = dependency.userUseCase.user(with: username)
+            return Single.zip(userRequest, repoRequest).map { ($0.0, $0.1) }
+        } else {
+            return repoRequest.map { (nil, $0) }
+        }
+    }
+
+    private func handle(response: Element, isFirst: Bool) {
+        let reposResponse = response.1
+        let elements = reposResponse.elements.filter({ !$0.fork })
+
+        if isFirst {
+            user = response.0
+            repos = elements
+        } else {
+            repos.append(contentsOf: elements)
+        }
+
+        nextPage = reposResponse.nextPage
+
+        let state: LoadingState = nextPage == nil ? .finished : .idle
+        _loadingState.accept(state)
+    }
+
+    private func handle(error: Error) {
+        print("error >>>>", error)
+        _loadingState.accept(.failure(error))
     }
 }

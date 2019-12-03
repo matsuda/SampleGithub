@@ -7,11 +7,12 @@
 //
 
 import Foundation
-
 import APIKit
 
-public struct UserRepoListRequest: GitHubRequest {
-    public typealias Response = [Repo]
+// MARK: - UserRepoListRequest
+
+public struct UserRepoListRequest: GitHubRequest, PaginationRequest {
+    public typealias Response = RepoListResponse<[Repo]>
 
     public var path: String {
         if let username = username {
@@ -20,11 +21,13 @@ public struct UserRepoListRequest: GitHubRequest {
             return "/users/repos"
         }
     }
-    public var method: HTTPMethod = .get
 
+    public let nextPageKey: String = "page"
+    public var page: Int?
     private let username: String?
 
-    public init(username: String? = nil) {
+    public init(username: String? = nil, page: Int? = nil) {
         self.username = username
+        self.page = page
     }
 }

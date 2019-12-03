@@ -15,17 +15,12 @@ public struct UserListRequest: GitHubRequest, PaginationRequest {
     public typealias Response = ListUserResponse<[ListUser]>
 
     public var path: String = "/users"
-    public var queryParameters: [String : Any]? {
-        if let since = since {
-            return ["since": since]
-        }
-        return nil
-    }
 
-    public let since: Int?
+    public let nextPageKey: String = "since"
+    public var page: Int?
 
-    public init(since: Int? = nil) {
-        self.since = since
+    public init(page: Int? = nil) {
+        self.page = page
     }
 }
 

@@ -61,21 +61,17 @@ extension UserListViewController {
         switch loadingState {
         case .loading(isFirst: true):
             updateTableFooterView(animated: true)
-            break
         case .loading(isFirst: false):
             updateTableFooterView(animated: true)
-            break
         case .idle:
             updateTableFooterView(animated: true)
             tableView.reloadData()
-            break
         case .finished:
             updateTableFooterView(animated: false)
             tableView.reloadData()
-            break
         case .failure(let error):
+            print("error >>>", error)
             updateTableFooterView(animated: false)
-            break
         }
     }
 

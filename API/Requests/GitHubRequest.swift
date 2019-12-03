@@ -63,10 +63,22 @@ extension PaginationRequest {
         dumpResponse(with: data)
         #endif
 
+//        print("====================================")
+//        print("==========   headers    ============")
+//        print("====================================")
+//        urlResponse.allHeaderFields.forEach { print($0) }
+//        print("====================================")
+
         let elements = try JSONDecoder().decode(Response.Element.self, from: data)
         let nextURI = urlResponse.findLink(relation: "next")?.uri
         print("nextURI >>>>>>>", nextURI as Any)
-        return Response(elements: elements, nextURI: nextURI)
+        let queryItems = nextURI.flatMap(URLComponents.init)?.queryItems
+        let nextPage = queryItems?
+            .filter { $0.name == nextPageKey }
+            .compactMap { $0.value }
+            .compactMap { Int($0) }
+            .first
+        return Response(elements: elements, nextPage: nextPage)
     }
 }
 

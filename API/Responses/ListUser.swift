@@ -25,17 +25,10 @@ public struct ListUser: Decodable {
 
 public struct ListUserResponse<Element: Decodable>: PaginationResponse {
     public let elements: Element
-    public var nextURI: String?
-    public var since: Int?
+    public let nextPage: Int?
 
-    public init(elements: Element, nextURI: String?) {
+    public init(elements: Element, nextPage: Int?) {
         self.elements = elements
-        self.nextURI = nextURI
-        let queryItems = nextURI.flatMap(URLComponents.init)?.queryItems
-        since = queryItems?
-            .filter { $0.name == "since" }
-            .compactMap { $0.value }
-            .compactMap { Int($0) }
-            .first
+        self.nextPage = nextPage
     }
 }

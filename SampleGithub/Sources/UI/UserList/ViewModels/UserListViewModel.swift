@@ -60,7 +60,7 @@ final class UserListViewModel {
         _loadingState.accept(.loading(isFirst: isFirst))
 
         let first = Single<Bool>.just(isFirst)
-        let request = dependency.userUseCase.list(since: nextPage)
+        let request = dependency.userUseCase.list(page: nextPage)
         Single.zip(request, first)
             .subscribe(onSuccess: handle(response:isFirst:),
                        onError: handle(error:))
@@ -76,7 +76,7 @@ final class UserListViewModel {
             users.append(contentsOf: elements)
         }
 
-        nextPage = response.since
+        nextPage = response.nextPage
 
         let state: LoadingState = elements.isEmpty ? .finished : .idle
         _loadingState.accept(state)

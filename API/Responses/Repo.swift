@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: - Repo
+
 public struct Repo: Decodable {
     public let name: String
     public let fullName: String
@@ -27,5 +29,18 @@ public struct Repo: Decodable {
         case description
         case fork
         case htmlUrl = "html_url"
+    }
+}
+
+
+// MARK: - RepoListResponse
+
+public struct RepoListResponse<Element: Decodable>: PaginationResponse {
+    public let elements: Element
+    public var nextPage: Int?
+
+    public init(elements: Element, nextPage: Int?) {
+        self.elements = elements
+        self.nextPage = nextPage
     }
 }
