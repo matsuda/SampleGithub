@@ -32,6 +32,8 @@
 		0E0C0B28238EE26C00FDEEBA /* DecodableDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0B27238EE26C00FDEEBA /* DecodableDataParser.swift */; };
 		0E0C0B2D238EEC2100FDEEBA /* ListUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0B2C238EEC2100FDEEBA /* ListUser.swift */; };
 		0E0C0B30238EEF7600FDEEBA /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C0B2F238EEF7600FDEEBA /* UserListViewModel.swift */; };
+		0E658D8F2396C4E400A0304E /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E658D8E2396C4E300A0304E /* SVProgressHUD.framework */; };
+		0E658D902396C4E400A0304E /* SVProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E658D8E2396C4E300A0304E /* SVProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0E690BF82393E6CF00C8E0D3 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E690BF72393E6CF00C8E0D3 /* UIColor+Extensions.swift */; };
 		0E690BFB2394179D00C8E0D3 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E690BFA2394179D00C8E0D3 /* LoadingState.swift */; };
 		0E690BFF23941D7C00C8E0D3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E690BFE23941D7C00C8E0D3 /* LoadingView.swift */; };
@@ -142,6 +144,7 @@
 				0EA80FF023929E04004553D7 /* RxRelay.framework in Embed Frameworks */,
 				0EA80FF423929E04004553D7 /* RxCocoa.framework in Embed Frameworks */,
 				0E0C0B13238EDD6000FDEEBA /* API.framework in Embed Frameworks */,
+				0E658D902396C4E400A0304E /* SVProgressHUD.framework in Embed Frameworks */,
 				0EA1FEF323903E7000D23AD6 /* Library.framework in Embed Frameworks */,
 				0E690C0723942C7500C8E0D3 /* WebLinking.framework in Embed Frameworks */,
 				0E0C0AF5238EDB6600FDEEBA /* Nuke.framework in Embed Frameworks */,
@@ -179,6 +182,7 @@
 		0E0C0B27238EE26C00FDEEBA /* DecodableDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableDataParser.swift; sourceTree = "<group>"; };
 		0E0C0B2C238EEC2100FDEEBA /* ListUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUser.swift; sourceTree = "<group>"; };
 		0E0C0B2F238EEF7600FDEEBA /* UserListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
+		0E658D8E2396C4E300A0304E /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		0E690BF72393E6CF00C8E0D3 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		0E690BFA2394179D00C8E0D3 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		0E690BFE23941D7C00C8E0D3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -230,6 +234,7 @@
 				0EA80FEF23929E04004553D7 /* RxRelay.framework in Frameworks */,
 				0EA80FF323929E04004553D7 /* RxCocoa.framework in Frameworks */,
 				0E0C0B12238EDD6000FDEEBA /* API.framework in Frameworks */,
+				0E658D8F2396C4E400A0304E /* SVProgressHUD.framework in Frameworks */,
 				0EA1FEF223903E7000D23AD6 /* Library.framework in Frameworks */,
 				0E690C0623942C7500C8E0D3 /* WebLinking.framework in Frameworks */,
 				0E0C0AF4238EDB6600FDEEBA /* Nuke.framework in Frameworks */,
@@ -388,6 +393,7 @@
 		0E0C0AEF238EDB6600FDEEBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0E658D8E2396C4E300A0304E /* SVProgressHUD.framework */,
 				0E690C0223942C3600C8E0D3 /* WebLinking.framework */,
 				0EA80FEB23929E04004553D7 /* RxBlocking.framework */,
 				0EA80FEC23929E04004553D7 /* RxCocoa.framework */,
@@ -854,6 +860,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/WebLinking.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
