@@ -38,6 +38,10 @@ final class UserListViewController: UIViewController {
         tableView.deselectRow()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.sizeToFitFooterView()
+    }
 }
 
 extension UserListViewController {

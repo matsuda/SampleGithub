@@ -20,7 +20,9 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="OzK-v3-yMd" secondAttribute="bottom" priority="999" constant="12" id="Eoc-ws-xbY"/>
                 <constraint firstItem="OzK-v3-yMd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="JGu-l1-7xC"/>
+                <constraint firstItem="OzK-v3-yMd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" priority="999" constant="12" id="TMV-ed-Zz8"/>
                 <constraint firstItem="OzK-v3-yMd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="VhJ-ZX-p6w"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

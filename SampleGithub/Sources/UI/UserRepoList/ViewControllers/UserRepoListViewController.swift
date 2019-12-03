@@ -42,6 +42,11 @@ final class UserRepoListViewController: UIViewController {
         tableView.deselectRow()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.sizeToFitFooterView()
+    }
+
     func configure(username: String) {
         self.username = username
     }
